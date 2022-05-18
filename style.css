@@ -1,0 +1,120 @@
+html, body {
+  height: 100%;
+  width: 100%;
+}
+body
+{
+	background-color: #e5e5e5;
+}
+main
+{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+section
+{
+	display: flex;
+	flex-direction: column;
+	height: 784px;
+	width: 571px;
+	margin-top: 166px;
+	margin-bottom: 167px;
+	border-radius: 0px;
+	background: #FFFFFF;
+	padding-top: 88px;
+	padding-left: 40px;
+	padding-right: 40px;
+}
+section h1
+{
+	height: 39px;
+	width: 572px;
+	left: 0px;
+	top: 0px;
+	border-radius: nullpx;
+	font-family: Inter;
+	font-size: 32px;
+	font-weight: 500;
+	line-height: 39px;
+	letter-spacing: 0em;
+	text-align: center;
+	color: #555555;
+	
+}
+section p
+{
+	align-self: center;
+	height: 126px;
+	width: 491px;
+	left: 0px;
+	top: -2px;
+	border-radius: nullpx;
+	font-family: Inter;
+	font-size: 20px;
+	font-weight: 400;
+	line-height: 32px;
+	letter-spacing: 0em;
+	text-align: center;
+	color: #555555;
+	margin-bottom: 65px;
+}
+form
+{
+	display:flex;
+	flex-direction: column;
+	align-items: center;
+}
+form label
+{
+	height: 17px;
+	width: 429px;
+	align-self: flex-start;
+	margin-left: 35px;
+	left: 0px;
+	top: 0px;
+	border-radius: nullpx;
+	font-family: Inter;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 19px;
+	letter-spacing: 0em;
+	text-align: left;
+	color: #555555;
+
+}
+form input
+{
+	height: 59px;
+	width: 491px;
+	margin-top: 15px;
+	margin-bottom: 45px;
+	left: 0px;
+	top: 32px;
+	border-radius: 0px;
+	background: #FFFFFF;
+	border: 1px solid #DDDDDD;
+}
+[type="submit"]
+{
+	height: 59px;
+	width: 226px;
+	left: 0px;
+	top: 0px;
+	border-radius: 0px;
+	background: #028A3D;
+	color: #fff;
+	font-family: Inter;
+	font-size: 20px;
+	font-weight: 500;
+	line-height: 24px;
+	letter-spacing: 0em;
+	text-align: center;
+
+
+}
+[type="text"]
+{
+	
+}
