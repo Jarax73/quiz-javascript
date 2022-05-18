@@ -11,14 +11,33 @@
 <body>
 	<main>
 		<section>
+			<!--formulaire d'accueil-->
+			<form id="accueil">
 			<h1>Javascript Quiz</h1>
-			<p>Évaluez vos connaissances en JavaScript en répondant aux questions que nous avons spécialement sélectionnées pour vous. C'est fun et c'est gratuit. </p>
-			<form>
-				<label for="name">Nom</label>
-				<input type="text" value="Jared Kapila" id="name" />
+			<p id="description">Évaluez vos connaissances en JavaScript en répondant aux questions que nous avons spécialement sélectionnées pour vous. C'est fun et c'est gratuit. </p>
+			
+				<label for="nom">Nom</label>
+				<input type="text" value="Jared Kapila" id="nom" name="nom" required/>
 				<label for="email">Email</label>
-				<input type="mail" value="jaraxkapila73@gmail.com" id="email" />
+				<input type="email" value="jaraxkapila73@gmail.com" id="email" name="nom" required/>
 				<input type="submit" value="Commencer" id="#" />
+
+			</form>
+			<!-- Formulaire pour les questions -->
+			<form id="form-questions">
+				<h1>Quel est le type d'un fichier JavaScript?	</h1>
+				<div id="questions-number">
+					<p>Question 1/15</p><p id="time">30</p>
+				</div>
+				<div id="radios">
+					<div id="radio-style"><input type="radio" name="answer-choice" id="ts" /><label for="ts">.ts</label></div>
+					<div id="radio-style"><input type="radio" name="answer-choice" id="jsx" /><label for="jsx">.jsx</label></div>
+					<div id="radio-style"><input type="radio" name="answer-choice" id="js" /><label for="js">.js</label></div>
+					<div id="radio-style"><input type="radio" name="answer-choice" id="j" /><label for="j">.j</label></div>
+					<div id="submit-style"><input type="submit" name="quit" id="orange" value="Quitter" />
+				<input type="submit" name="next" id="green" value="Submit" /> 
+					</div>
+				</div>
 			</form>
 		</section>
 	</main>
