@@ -14,6 +14,7 @@ body
 main
 {
 	display: flex;
+	width: 100%;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
@@ -98,6 +99,7 @@ form input
 {
 	height: 59px;
 	width: 491px;
+	padding: 21px;
 	margin-top: 15px;
 	margin-bottom: 45px;
 	left: 0px;
@@ -105,11 +107,13 @@ form input
 	border-radius: 0px;
 	background: #FFFFFF;
 	border: 1px solid #DDDDDD;
+	box-sizing: border-box;
 }
 [type="submit"]
 {
 	height: 59px;
 	width: 226px;
+	padding: 0;
 	left: 0px;
 	top: 0px;
 	border-radius: 0px;
@@ -122,7 +126,12 @@ form input
 	letter-spacing: 0em;
 	text-align: center;
 	box-shadow: 1px 10px 6px -4px #e5e5e5;
-
+	cursor: pointer;
+	
+}
+#form-questions
+{
+	display: none;
 }
 #form-questions h1
 {
@@ -206,11 +215,70 @@ form input
 }
 #orange
 {
-	background-color: #db8f00;
-	border: 1px solid #db8f00;
+	background-color: #EC880C;
+	border: 1px solid #EC880C;
 }
 #green
 {
-	background-color: #8ba78b;
-	border: 1px solid #8ba78b;
+	background-color: #028A3D;
+	border: 1px solid #028A3D;
+}
+#result
+{
+	display: none;
+}
+#result h1
+{
+	height: 48px;
+	width: 572px;
+	margin-left: 0px;
+	margin-top: 145px;
+	margin-bottom: 41px;
+	border-radius: nullpx;
+	font-family: Inter;
+	font-size: 40px;
+	font-weight: 500;
+	line-height: 48px;
+	letter-spacing: 0em;
+	text-align: center;
+
+}
+#result p
+{
+	height: 24px;
+	width: 572px;
+	margin-bottom: 51.88px;
+	border-radius: nullpx;
+	font-family: Inter;
+	font-size: 20px;
+	font-weight: 500;
+	line-height: 24px;
+	letter-spacing: 0em;
+	text-align: center;
+
+
+}
+.success-wrong
+{
+	margin-bottom: 51.88px;
+}
+#points
+{
+	margin-bottom: 41px;
+}
+button
+{
+	height: 59px;
+	width: 226px;
+	border-radius: 0px;
+	border: 1px solid #0880D6; 
+	background-color: #0880D6;
+	color: #fff;
+	font-family: Inter;
+	font-size: 20px;
+	font-weight: 500;
+	line-height: 24px;
+	letter-spacing: 0em;
+	text-align: center;
+
 }
