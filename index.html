@@ -17,9 +17,9 @@
 			<p id="description">Évaluez vos connaissances en JavaScript en répondant aux questions que nous avons spécialement sélectionnées pour vous. C'est fun et c'est gratuit. </p>
 			
 				<label for="nom">Nom</label>
-				<input type="text" value="Jared Kapila" id="nom" name="nom" required/>
+				<input type="text" placeholder="Jared Kapila" id="nom" name="nom" required/>
 				<label for="email">Email</label>
-				<input type="email" value="jaraxkapila73@gmail.com" id="email" name="nom" required/>
+				<input type="email" placeholder="jaraxkapila73@gmail.com" id="email" name="nom" required/>
 				<input type="submit" value="Commencer" id="#" />
 
 			</form>
@@ -29,6 +29,7 @@
 				<div id="questions-number">
 					<p>Question 1/15</p><p id="time">30</p>
 				</div>
+					<div id="crossdiv"><p id="crossbar"></p></div>
 				<div id="radios">
 					<div id="radio-style"><input type="radio" name="answer-choice" id="ts" /><label for="ts">.ts</label></div>
 					<div id="radio-style"><input type="radio" name="answer-choice" id="jsx" /><label for="jsx">.jsx</label></div>
@@ -43,8 +44,8 @@
 			<form id="result">
 				<h1>Jared Kapila</h1>
 				<p>jaraxkapila73@gmail.com</p>
-				<p class="fa-regular fa-circle-check success success-wrong"></p>
-				<p class="fa-regular fa-circle-xmark wrong success-wrong"></p>
+				<p class="success-wrong success"><img src="success.jpg" /></p>
+				<p class="success-wrong wrong"><img src="wrong.jpg" /></p>
 				<p id="points">15/15</p>
 				<button class="buton">Accueil</button>
 			</form>
