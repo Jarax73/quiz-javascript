@@ -294,7 +294,7 @@ button
 #crossdiv
 {
 	width: 86%;
-	border: 1px solid #5e5e5e;
+	border: 1px solid #cecece;
 	height: 10px;
 	margin-bottom: 62px;
 	border-radius: 10px;
@@ -308,7 +308,7 @@ button
 	height: 8px;
 	border-radius: 10px;
 	margin-bottom: 62px;
-	border: 1px solid #5e5e5e;
+	border: 1px solid #cecece;
 }
 @keyframes slidein {
   from {
