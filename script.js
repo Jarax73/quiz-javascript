@@ -4,26 +4,66 @@ const questions = document.querySelector("#form-questions");
 const radios = document.querySelectorAll('answer-choice');
 const enoncedText = document.querySelector("#form-questions h1");
 const answersChoice = document.querySelectorAll(".answer-choice");
+const divRadio = document.querySelector("#radios");
 const radiosInput = document.querySelectorAll("[type='radio']");
 const forLabel = document.querySelectorAll('#radios label');
-const questionNumbers = document.querySelectorAll("#questions-number p");
+const questionNumbers = document.querySelector("#questions-number p");
+const time = document.querySelector("#time");
+const timeShow = 60;
+let points = 0;
 
-let question = "Quel est le type d'un fichier JavaScript ?";
-let answers = [".ts", ".jsx", ".js", ".j"];
-let idAnswers = ["ts", "jsx", "js", "j"];
-let nb = ["Question 1/15", 30];
 
-enoncedText.textContent = question;
-
-for (let i = 0; i < nb.length; i++){
-	questionNumbers[i].textContent += nb[i];
+let questionShow = [ 
+	{
+		question: "Quel est le type d'un fichier JavaScript ?",
+		answers: [".ts", ".jsx", ".js", ".j"],
+		correct: ".js",
+		idAnswers: ["ts", "jsx", "js", "j"]
+	},
+	{
+		question: "Où est-il conseillé d'écrire du JavaScript ?",
+		answers: ["dans la balise head", "dans la balise body", "dans un fichier externe", "aucune bonne reponse"],
+		correct: "dans un fichier externe",
+		idAnswers: ["head", "boDy", "externe", "none"]
+	}];
+		
+							
+for (let i = 0; i < questionShow.length; i++){
+	enoncedText.textContent = questionShow[i].question;
+	questionNumbers.textContent = "Question " + [i + 1] + '/' + questionShow.length;
+	time.textContent = timeShow;
+	console.log(questionShow[0]);
+	for(let j = 0; j < questionShow[i].answers.length; j++){
+		
+		answersChoice[j].textContent = questionShow[i].answers[j];
+		forLabel[j].setAttribute("for", questionShow[i].idAnswers[j]);
+		radiosInput[j].setAttribute("id", questionShow[i].idAnswers[j]);
+		console.log(answersChoice[j]);
+	}
+	
 }
-for(let i = 0; i < answersChoice.length; i++){
-	answersChoice[i].textContent += answers[i];
-	answersChoice[i].setAttribute("value", answers[i]);
-	forLabel[i].setAttribute("for", idAnswers[i]);
-	radiosInput[i].setAttribute("id", idAnswers[i]);
-}
+
+
+
+
+
+
+// let question = "Quel est le type d'un fichier JavaScript ?";
+// let answers = [".ts", ".jsx", ".js", ".j"];
+// let idAnswers = ["ts", "jsx", "js", "j"];
+// let nb = ["Question 1/15", 30];
+
+// enoncedText.textContent = question;
+
+// for (let i = 0; i < nb.length; i++){
+// 	questionNumbers[i].textContent += nb[i];
+// }
+// for(let i = 0; i < answersChoice.length; i++){
+// 	answersChoice[i].textContent += answers[i];
+// 	answersChoice[i].setAttribute("value", answers[i]);
+	// forLabel[i].setAttribute("for", idAnswers[i]);
+	// radiosInput[i].setAttribute("id", idAnswers[i]);
+// }
 
 
 form.addEventListener("submit", function(e){
@@ -46,35 +86,36 @@ form.addEventListener("submit", function(e){
 	form.style.display = "none";
 	questions.style.display = "block";
 
-	questions.addEventListener("submit", function(event){
-		event.preventDefault();
-		let valeur;
-		for (let i = 0; i < questions.length; i++){
-			if(questions[i].checked == true){
-				valeur = questions[i].value;
-				break;
-			}
-		}
-		console.log(valeur);
-		function Quizz(question, answer, correct){
-			this.question = question;
-			this.answer = answer;
-			this.correct = correct;
 	
-			this.questioneEnonced = function(){
-				let enonced = this.question;
-				enoncedText.textContent = enonced;
-				console.log(enonced);
-				for (let i = 0; i < answer.length; i++){
-					answersChoice.textContent += answer[i];
-				}
-			}
-			this.addAnswer = function(choice){
-				this.answer.push(choice);
-			}
-		}
-		const question1 = Quizz("Quel est le type d'un fichier JavaScript ?", [".ts", ".jsx", ".js", ".j"], ".js");
-	});
+	// questions.addEventListener("submit", function(event){
+	// 	event.preventDefault();
+	// 	let valeur;
+	// 	for (let i = 0; i < questions.length; i++){
+	// 		if(questions[i].checked == true){
+	// 			valeur = questions[i].value;
+	// 			break;
+	// 		}
+	// 	}
+	// 	console.log(valeur);
+	// 	function Quizz(question, answer, correct){
+	// 		this.question = question;
+	// 		this.answer = answer;
+	// 		this.correct = correct;
+	
+	// 		this.questioneEnonced = function(){
+	// 			let enonced = this.question;
+	// 			enoncedText.textContent = enonced;
+	// 			console.log(enonced);
+	// 			for (let i = 0; i < answer.length; i++){
+	// 				answersChoice.textContent += answer[i];
+	// 			}
+	// 		}
+	// 		this.addAnswer = function(choice){
+	// 			this.answer.push(choice);
+	// 		}
+	// 	}
+	// 	const question1 = Quizz("Quel est le type d'un fichier JavaScript ?", [".ts", ".jsx", ".js", ".j"], ".js");
+	// });
 	
 	
 	
