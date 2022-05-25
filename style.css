@@ -7,6 +7,7 @@ html, body {
 	margin: 0;
 	padding: 0;
 }
+
 body
 {
 	background-color: #e5e5e5;
@@ -24,6 +25,7 @@ section
 {
 	display: flex;
 	flex-direction: column;
+	align-items: center;
 	height: 784px;
 	width: 571px;
 	margin-top: 166px;
@@ -136,9 +138,10 @@ form input
 #form-questions h1
 {
 	height: 33px;
-	width: 491px;
+	width: ;
+		/* margin-left: auto;
+		margin-left: auto; */
 	margin-bottom: 31.43px;
-	top: -0.4296875px;
 	border-radius: ;
 	font-family: Inter;
 	font-size: 20px;
@@ -158,7 +161,8 @@ form input
 	height: 33px;
 	width: 491px;
 	margin-bottom: 5px;
-	margin-left: 0px;
+	margin-left: auto;
+	margin-right: auto;
 	margin-top: 0px;
 	border-radius: nullpx;
 	font-size: 14px;
@@ -167,23 +171,29 @@ form input
 	letter-spacing: 0em;
 	text-align: left;
 }
-#radio-style
+.radio-style
 {
 	height: 59px;
 	width: 491px;
-	margin-left: 0px;
+	margin-left: auto;
+	margin-right: auto;
 	margin-top: 0px;
 	margin-bottom: 36px;
 	border-radius: 0px;
 	background: #FFFFFF;
 	border: 1px solid #DDDDDD;
 }
+.greens
+{
+	
+}
+
 [type="radio"]
 {
 	height: 20px;
 	width: 20px;
 	margin-left: 19px;
-	margin-top: 19px;
+	margin-top: 20px;
 	border-radius: 20px;
 	border: 1px solid #DDDDDD;
 }
@@ -203,7 +213,12 @@ form input
 	text-align: left;
 
 }
-#form-questions [type="submit"]
+#radios
+{
+	display: flex;
+	flex-direction: column-reverse;
+}
+button
 {
 	margin-top: 50px;
 }
@@ -235,7 +250,6 @@ form input
 	margin-left: 0px;
 	margin-top: 115px;
 	margin-bottom: 41px;
-	border-radius: nullpx;
 	font-family: Inter;
 	font-size: 40px;
 	font-weight: 500;
@@ -249,13 +263,16 @@ form input
 	height: 24px;
 	width: 572px;
 	margin-bottom: 51.88px;
-	border-radius: nullpx;
 	font-family: Inter;
 	font-size: 20px;
 	font-weight: 500;
 	line-height: 24px;
 	letter-spacing: 0em;
 	text-align: center;
+}
+#result button
+{
+	margin-left: 30%;
 }
 
 .success-wrong img
@@ -272,8 +289,8 @@ form input
 }
 #points
 {
-	margin-top: 101.88px;
-	margin-bottom: 41px;
+	margin-top: 30%;
+	margin-bottom: ;
 }
 button
 {
@@ -296,39 +313,381 @@ button
 	width: 86%;
 	border: 1px solid #cecece;
 	height: 10px;
+	margin-left: auto;
+	margin-right: auto;
 	margin-bottom: 62px;
 	border-radius: 10px;
 	background-color: #cecece;
 }
 #crossbar
 {
-	animation-duration: 25s;
-  animation-name: slidein;
+	animation-duration: 60s;
+	animation-name: slidein;
 	width: 100%;
 	height: 8px;
 	border-radius: 10px;
 	margin-bottom: 62px;
 	border: 1px solid #cecece;
 }
+
 @keyframes slidein {
   from {
     margin-left: 0%;
     width: 100%;
-		background-color: green;
-		border: 1px solid green;
+	background-color: green;
+	border: 1px solid green;
   }
-  50% {
-    font-size: 300%;
+  70% {
     margin-left: 0%;
-    width: 65%;
-		background-color: orange;
-		border: 1px solid orange;
+    width: 45%;
+	background-color: orange;
+	border: 1px solid orange;
   }
-
+ 
   to {
     margin-left: 0%;
     width: 0%;
+	background-color: red;
+	border: 1px solid red;
+  }
+}
+
+@media screen and (max-width: 800px){
+	
+	body
+	{
+		width: 100%;
+	}
+	section
+	{
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		width: 90%;
+		margin: 0;
+		background: #FFFFFF;
+		padding-top: 4%;
+		padding-left: 2.5%;
+		padding-right: 2.5%;
+	}
+	section h1
+	{
+		height: 1%;
+		width: 50%;
+		font-family: Inter;
+		font-size: 32px;
+		font-weight: 500;
+		line-height: 39px;
+		letter-spacing: 0em;
+		text-align: center;
+		color: #555555;
+		
+	}
+	#description
+	{
+		align-self: center;
+		height: 2%;
+		width: 70%;
+		left: 0px;
+		top: -2px;
+		border-radius: ;
+		font-family: Inter;
+		font-size: 20px;
+		font-weight: 400;
+		line-height: 32px;
+		letter-spacing: 0em;
+		text-align: center;
+		color: #555555;
+		margin-bottom: 65px;
+	}
+	#accueil
+	{
+		display: ;
+	}
+	
+	form
+	{
+		display: flex;
+		flex-direction: column;
+		align-items: ;
+	}
+	form label
+	{
+		height: 17px;
+		width: 100%;
+		align-self: flex-start;
+		margin-left: 10%;
+		font-family: Inter;
+		font-size: 16px;
+		font-weight: 400;
+		line-height: 19px;
+		letter-spacing: 0em;
+		text-align: left;
+		color: #555555;
+	}
+	form input
+	{
+		height: 5%;
+		width: 80%;
+		padding: 3%;
+		margin-top: 15px;
+		margin-bottom: 45px;
+		background: #FFFFFF;
+		border: 1px solid #DDDDDD;
+		box-sizing: border-box;
+	}
+	[type="submit"]
+	{
+		height: 59px;
+		width: 50%;
+		min-width: 120px;
+		padding: 0;
+		border-radius: 0px;
+		background: #028A3D;
+		color: #fff;
+		font-family: Inter;
+		font-size: 20px;
+		font-weight: 500;
+		line-height: 24px;
+		letter-spacing: 0em;
+		text-align: center;
+		box-shadow: 1px 10px 6px -4px #e5e5e5;
+		cursor: pointer;
+		
+	}
+	#form-questions
+	{
+		display: none;
+	}
+	#form-questions h1
+	{
+		height: 33px;
+		width: 65%;
+		text-align: center;
+		margin-left: 15%;
+		min-width: 80px;
+			/* margin-left: auto;
+			margin-left: auto; */
+		margin-bottom: 31.43px;
+		font-family: Inter;
+		font-size: 20px;
+		font-weight: 400;
+		line-height: 32px;
+		letter-spacing: 0em;
+		text-align: center;
+		color: #555555;
+	
+	}
+	#questions-number
+	{
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		font-family: Inter;
+		height: 33px;
+		width: 70%;
+		margin-bottom: 5px;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 0px;
+		border-radius: nullpx;
+		font-size: 14px;
+		font-weight: 400;
+		line-height: 32px;
+		letter-spacing: 0em;
+		text-align: left;
+	}
+	.radio-style
+	{
+		height: 59px;
+		width: 70%;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 0px;
+		margin-bottom: 36px;
+		border-radius: 0px;
+		background: #FFFFFF;
+		border: 1px solid #DDDDDD;
+	}
+	.greens
+	{
+		
+	}
+	
+	[type="radio"]
+	{
+		height: 20px;
+		width: 20px;
+		margin-left: 19px;
+		margin-top: 20px;
+		border-radius: 20px;
+		border: 1px solid #DDDDDD;
+	}
+	#radio-style label
+	{
+		display: inline-block;
+		height: 30px;
+		width: 385px;
+		margin-left: 18px;
+		margin-top: 19px;
+		border-radius: nullpx;
+		font-family: Inter;
+		font-size: 20px;
+		font-weight: 400;
+		line-height: 24px;
+		letter-spacing: 0em;
+		text-align: left;
+	
+	}
+	#radios
+	{
+		display: flex;
+		flex-direction: column-reverse;
+	}
+	button
+	{
+		margin-top: 50px;
+	}
+	#submit-style
+	{
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		margin-bottom: 60px;
+		
+	}
+	#orange
+	{
+		background-color: #EC880C;
+		border: 1px solid #EC880C;
+	}
+	#green
+	{
+		background-color: #028A3D;
+		border: 1px solid #028A3D;
+	}
+	
+	#result
+	{
+		display: none;
+	}
+
+#result h1
+{
+	height: 48px;
+	width: 572px;
+	margin-left: 0px;
+	margin-top: 115px;
+	margin-bottom: 41px;
+	border-radius: nullpx;
+	font-family: Inter;
+	font-size: 40px;
+	font-weight: 500;
+	line-height: 48px;
+	letter-spacing: 0em;
+	text-align: center;
+
+}
+#result p
+{
+	height: 24px;
+	width: 572px;
+	margin-bottom: 51.88px;
+	border-radius: nullpx;
+	font-family: Inter;
+	font-size: 20px;
+	font-weight: 500;
+	line-height: 24px;
+	letter-spacing: 0em;
+	text-align: center;
+}
+#result button
+	{
+		align-self: center;
+	}
+	#result button
+	{
+		width: 40%;
+		min-width: 50px;
+		margin-bottom: 10%;
+	}
+	
+	
+	.success-wrong img
+	{
+		width: 25%;
+	}
+	.success
+	{
+		display: none;
+	}
+	.wrong
+	{
+		display: ;
+	}
+	#points
+	{
+		margin-top: 30%;
+		margin-bottom: ;
+	}
+	button
+	{
+		height: 59px;
+		width: 60%;
+		
+		border-radius: 0px;
+		border: 1px solid #0880D6; 
+		background-color: #0880D6;
+		color: #fff;
+		font-family: Inter;
+		font-size: 20px;
+		font-weight: 500;
+		line-height: 24px;
+		letter-spacing: 0em;
+		text-align: center;
+	
+	}
+	#crossdiv
+	{
+		width: 70%;
+		border: 1px solid #cecece;
+		height: 10px;
+		margin-left: auto;
+		margin-right: auto;
+		margin-bottom: 62px;
+		border-radius: 10px;
+		background-color: #cecece;
+	}
+	#crossbar
+	{
+		animation-duration: 60s;
+		animation-name: slidein;
+		width: 100%;
+		height: 8px;
+		border-radius: 10px;
+		margin-bottom: 62px;
+		border: 1px solid #cecece;
+	}
+	
+	@keyframes slidein {
+	  from {
+	    margin-left: 0%;
+	    width: 100%;
+		background-color: green;
+		border: 1px solid green;
+	  }
+	  70% {
+	    margin-left: 0%;
+	    width: 45%;
+		background-color: orange;
+		border: 1px solid orange;
+	  }
+	 
+	  to {
+	    margin-left: 0%;
+	    width: 0%;
 		background-color: red;
 		border: 1px solid red;
-  }
+	  }
+	}
 }

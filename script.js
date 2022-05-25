@@ -1,126 +1,178 @@
 const accueil = document.querySelectorAll('#accueil .description');
 const form = document.querySelector("#accueil");
-const questions = document.querySelector("#form-questions");
+const questionsForm = document.querySelector("#form-questions");
 const radios = document.querySelectorAll('answer-choice');
-const enoncedText = document.querySelector("#form-questions h1");
-const answersChoice = document.querySelectorAll(".answer-choice");
-const divRadio = document.querySelector("#radios");
-const radiosInput = document.querySelectorAll("[type='radio']");
+const radioStyle = document.querySelectorAll(".radio-style");
 const forLabel = document.querySelectorAll('#radios label');
-const questionNumbers = document.querySelector("#questions-number p");
-const time = document.querySelector("#time");
-const timeShow = 60;
-let points = 0;
+const questionsNumber = document.querySelector("#questions-number");
+const crossdiv = document.querySelector("#crossdiv");
+const resultScreen = document.querySelector("#result");
+const showScore = document.querySelector("#points");
+
+let questions = ["Quel est le type d'un fichier JavaScript ?", "Où est-il conseillé d'écrire du JavaScript ?", "Quelle est l'utilité d'une fonction ?"];
+let answers = [
+	[".ts", ".jsx", ".js", ".j"], 
+	["dans la balise head", "dans la balise body", "dans un fichier externe", "aucune bonne reponse"],
+	["ne pas repéter le même code plusieurs fois", "créer des balises html", "créer des boucles", "écrire plusieurs fois le même code"]
+];
+let correct = [".js", "dans un fichier externe", "ne pas repéter le même code plusieurs fois"];
+let idAnswers = [
+    ["ts", "jsx", "js", "j"], 
+    ["head", "boDy", "externe", "none"], 
+    ["repeter", "balises", "boucle", "same	"]
+];
 
 
-let questionShow = [ 
-	{
-		question: "Quel est le type d'un fichier JavaScript ?",
-		answers: [".ts", ".jsx", ".js", ".j"],
-		correct: ".js",
-		idAnswers: ["ts", "jsx", "js", "j"]
-	},
-	{
-		question: "Où est-il conseillé d'écrire du JavaScript ?",
-		answers: ["dans la balise head", "dans la balise body", "dans un fichier externe", "aucune bonne reponse"],
-		correct: "dans un fichier externe",
-		idAnswers: ["head", "boDy", "externe", "none"]
-	}];
-		
-							
-for (let i = 0; i < questionShow.length; i++){
-	enoncedText.textContent = questionShow[i].question;
-	questionNumbers.textContent = "Question " + [i + 1] + '/' + questionShow.length;
-	time.textContent = timeShow;
-	console.log(questionShow[0]);
-	for(let j = 0; j < questionShow[i].answers.length; j++){
-		
-		answersChoice[j].textContent = questionShow[i].answers[j];
-		forLabel[j].setAttribute("for", questionShow[i].idAnswers[j]);
-		radiosInput[j].setAttribute("id", questionShow[i].idAnswers[j]);
-		console.log(answersChoice[j]);
-	}
-	
-}
+let indexCurrentQuestion = 0;
 
-
-
-
-
-
-// let question = "Quel est le type d'un fichier JavaScript ?";
-// let answers = [".ts", ".jsx", ".js", ".j"];
-// let idAnswers = ["ts", "jsx", "js", "j"];
-// let nb = ["Question 1/15", 30];
-
-// enoncedText.textContent = question;
-
-// for (let i = 0; i < nb.length; i++){
-// 	questionNumbers[i].textContent += nb[i];
-// }
-// for(let i = 0; i < answersChoice.length; i++){
-// 	answersChoice[i].textContent += answers[i];
-// 	answersChoice[i].setAttribute("value", answers[i]);
-	// forLabel[i].setAttribute("for", idAnswers[i]);
-	// radiosInput[i].setAttribute("id", idAnswers[i]);
-// }
-
+resultScreen.style.display = "none";
 
 form.addEventListener("submit", function(e){
-	e.preventDefault();
-	
-	// récupérer les valeurs de champs du formulaire d'accueil
-	
+    e.preventDefault();
+
 	const inputValues = {};
 	for (const info of this.elements){
 		const {name, value} = info;
 		if(name){
 		inputValues[name] = value;
 		}
+        
+        // let title = document.querySelector("#result h1");
+        // let email = document.querySelector("result p");
+
+        
+        // title.textContent = info;
+        // email.textContent = info;
 	}
-	for (const el in inputValues){
-		// console.log(inputValues[el]);
-		// form.textContent += inputValues[el] + " ";
-		
-	}
+    for (let ind in inputValues){
+        console.log(ind);
+
+    }
+    console.log(inputValues);
+
 	form.style.display = "none";
-	questions.style.display = "block";
+	questionsForm.style.display = "block";
+	
+	console.log(questionsForm);
 
-	
-	// questions.addEventListener("submit", function(event){
-	// 	event.preventDefault();
-	// 	let valeur;
-	// 	for (let i = 0; i < questions.length; i++){
-	// 		if(questions[i].checked == true){
-	// 			valeur = questions[i].value;
-	// 			break;
-	// 		}
-	// 	}
-	// 	console.log(valeur);
-	// 	function Quizz(question, answer, correct){
-	// 		this.question = question;
-	// 		this.answer = answer;
-	// 		this.correct = correct;
-	
-	// 		this.questioneEnonced = function(){
-	// 			let enonced = this.question;
-	// 			enoncedText.textContent = enonced;
-	// 			console.log(enonced);
-	// 			for (let i = 0; i < answer.length; i++){
-	// 				answersChoice.textContent += answer[i];
-	// 			}
-	// 		}
-	// 		this.addAnswer = function(choice){
-	// 			this.answer.push(choice);
-	// 		}
-	// 	}
-	// 	const question1 = Quizz("Quel est le type d'un fichier JavaScript ?", [".ts", ".jsx", ".js", ".j"], ".js");
-	// });
-	
-	
-	
+
+    if(indexCurrentQuestion < questions.length){
+        let points = 0;
+        let oneMinute = 59;
+        display = document.querySelector('#time');
+        startTimer(oneMinute, display);
+				
+        let questionCounter = document.createElement("p");
+        questionCounter.textContent = `Question ${indexCurrentQuestion + 1}/${questions.length}`;
+        console.log(questionCounter);
+
+        questionsNumber.prepend(questionCounter);
+
+        let questionTitle = document.createElement("h1");
+        questionTitle.textContent = questions[indexCurrentQuestion];
+        questionsForm.prepend(questionTitle);
+
+        let questionAnswers = document.createElement("div");
+        questionAnswers.setAttribute("id", "radios");
+        let quitbtn = document.createElement("button");
+        quitbtn.setAttribute("id", "orange");
+        quitbtn.textContent  = "Quitter";
+        let nextbtn = document.createElement("button");
+        nextbtn.setAttribute("id", "green");
+        nextbtn.textContent = "Suivant";
+        let stylebtn = document.createElement("div");
+        stylebtn.setAttribute("id", "submit-style");
+
+        
+        questionAnswers.appendChild(stylebtn);
+				const radioIn = document.createElement('div');
+				
+				
+        answers[indexCurrentQuestion].forEach(function(answer){
+					let radioStyle = document.createElement("div");
+					radioStyle.setAttribute("class", "radio-style");
+					let radiosInput = document.createElement("input");
+					radiosInput.setAttribute("type", "radio");
+					radiosInput.setAttribute("name", "answer-choice");
+					let labelTitle = document.createElement("label");
+					labelTitle.classList.add("answer-choice");
+					labelTitle.setAttribute("for", answer.split(" "));
+					labelTitle.textContent = answer;
+					radiosInput.setAttribute("id", answer.split(" "));
+					radioStyle.appendChild(radiosInput);
+					radioStyle.appendChild(labelTitle);
+					radioIn.append(radioStyle);
+					questionAnswers.append(radioIn);
+        })
+        stylebtn.appendChild(quitbtn);
+        stylebtn.appendChild(nextbtn);
+
+        nextbtn.addEventListener("click", function(e){
+                e.preventDefault();
+                
+
+					let chose = document.querySelector('input[name="answer-choice"]:checked').value;
+
+					console.log(chose);
+
+					if(indexCurrentQuestion + 1 < questions.length && chose == idAnswers[indexCurrentQuestion ]){
+							points++;
+							indexCurrentQuestion++;
+							
+							
+							questionTitle.textContent = questions[indexCurrentQuestion];
+							questionCounter.textContent = `Question ${indexCurrentQuestion + 1}/${questions.length}`;
+							answers[indexCurrentQuestion].forEach(function(){
+									labelTitle = document.querySelectorAll(".answer-choice");
+									for(let i = 0; i < labelTitle.length; i++){
+											labelTitle[i].textContent = answers[indexCurrentQuestion][i];
+									}
+									
+									questionsForm.reset();
+							})
+					} 
+					else{
+							questionsForm.style.display = "none";
+							resultScreen.style.display = "block";
+							// console.log(indexCurrentQuestion);
+							
+							showScore.textContent = `${points}/${questions.length}`;
+					}
+			});
+
+	questionsForm.appendChild(questionAnswers);
+	console.log(questionsForm);
+	console.log(questionCounter);
+    }
+    
+    else{
+        
+    }
+
+
+    function startTimer(duration, display) {
+        let timer = duration, minutes, seconds;
+        setInterval(function () {
+            minutes = parseInt(timer / 60, 10);
+            seconds = parseInt(timer % 60, 10);
+    
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+    
+            display.textContent = minutes + ":" + seconds;
+    
+            if (--timer < 0) {
+                timer = duration;
+                if(timer == 0){
+
+                }
+            }
+
+        }, 1000);
+    }
+    
+   
+        
+  
+
 });
-
-
-
-
