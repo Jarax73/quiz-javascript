@@ -179,6 +179,8 @@ form input
 	margin-right: auto;
 	margin-top: 0px;
 	margin-bottom: 36px;
+	overflow-y: hidden;
+	white-space: nowrap;
 	border-radius: 0px;
 	background: #FFFFFF;
 	border: 1px solid #DDDDDD;
@@ -200,8 +202,8 @@ form input
 #radio-style label
 {
 	display: inline-block;
-	height: 30px;
-	width: 385px;
+	height: ;
+	width: 100%;
 	margin-left: 18px;
 	margin-top: 19px;
 	border-radius: nullpx;
@@ -462,9 +464,9 @@ button
 	#form-questions h1
 	{
 		height: 33px;
-		width: 65%;
+		width: 90%;
 		text-align: center;
-		margin-left: 15%;
+		margin-left: ;
 		min-width: 80px;
 			/* margin-left: auto;
 			margin-left: auto; */
@@ -485,7 +487,7 @@ button
 		justify-content: space-between;
 		font-family: Inter;
 		height: 33px;
-		width: 70%;
+		width: 90%;
 		margin-bottom: 5px;
 		margin-left: auto;
 		margin-right: auto;
@@ -500,7 +502,7 @@ button
 	.radio-style
 	{
 		height: 59px;
-		width: 70%;
+		width: 90%;
 		margin-left: auto;
 		margin-right: auto;
 		margin-top: 0px;
@@ -649,7 +651,7 @@ button
 	}
 	#crossdiv
 	{
-		width: 70%;
+		width: 90%;
 		border: 1px solid #cecece;
 		height: 10px;
 		margin-left: auto;
