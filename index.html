@@ -2,11 +2,11 @@
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>Je teste</title>
-  <link href="style.css" rel="stylesheet" type="text/css" />
-	<link rel="stylesheet" media="screen and (max-width: 800px) and landscape" href="query.css"/>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>Je teste</title>
+	<link href="style.css" rel="stylesheet" type="text/css" />
+	<!-- <link rel="stylesheet" media="screen and (max-width: 800px) and landscape" href="query.css" type="text/css" /> -->
 </head>
 
 <body>
@@ -18,20 +18,32 @@
 			<p id="description">Évaluez vos connaissances en JavaScript en répondant aux questions que nous avons spécialement sélectionnées pour vous. C'est fun et c'est gratuit. </p>
 			
 				<label for="nom">Nom</label>
-				<input type="text" placeholder="Jared Kapila" id="nom" name="nom" class="description" required/>
+				<input type="text" placeholder="Jared Kapila" id="nom" name="nom" class="description" />
+				<p id="name"></p>
 				<label for="email">Email</label>
-				<input type="email" placeholder="jaraxkapila73@gmail.com" id="mail" name="mail" class="description" required/>
+				<input type="email" placeholder="jaraxkapila73@gmail.com" id="mail" name="mail" class="description" />
+				<p id="email"></p>
 				<input type="submit" value="Commencer" id="#" />
 
 			</form>
 			<!-- Formulaire pour les questions -->
 			<form id="form-questions">
-				<!-- <h1></h1> -->
-				<div id="questions-number">
-					<p id="time"></p>
-				</div>
-					<div id="crossdiv"><p id="crossbar"></p></div>
+				<!-- <h1></h1>
+				<div id="questions-number"> -->
+					<!-- <p></p><p id="time"></p> -->
+				<!-- </div>
+				<div id="crossdiv"><p id="crossbar"></p></div> -->
+				<!-- <div id="radios">
+					<div class="radio-style"><input type="radio" id="1" name="answer-choice" /><label for="1" class="answer-choice"></label></div>
+					<div class="radio-style"><input type="radio" id="2" name="answer-choice" /><label for="2" class="answer-choice"></label></div>
+					<div class="radio-style"><input type="radio" id="3" name="answer-choice" /><label for="3" class="answer-choice"></label></div>
+					<div class="radio-style"><input type="radio" id="4" name="answer-choice" /><label for="4" class="answer-choice"></label></div>
 				
+					<div id="submit-style">
+						<button id="orange">Quitter</button>
+						<button id="green">Suivant</button>
+					</div>
+				</div> -->
 			</form>
 			<!--Formulaire de résultat-->
 			<form id="result">
