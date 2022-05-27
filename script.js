@@ -134,15 +134,16 @@ form.addEventListener("submit", function(e){
 					chose = -1;
 				}
 				
+				
+				if(chose == correct[index]){
+					points++;
+					
+				}
 				index++;
-				
-				
+				console.log(points);
 				
 				if(index < answers.length ){
-					if(chose == correct[index]){
-					points++;
-					//console.log(points);
-					}
+					
 					
 					questionTitle.textContent = questions[index];
 					questionCounter.textContent = `Question ${index + 1}/${questions.length}`;
@@ -165,12 +166,14 @@ form.addEventListener("submit", function(e){
 					resultName.textContent = name;
 					resultMail.textContent = mail;
 					questionsForm.style.display = "none";
-					if(points <= questions.length / 2){
-						resultScreen.style.display = "block";
-						wrong.style.display = "block";
-					}else{
+					if(points >= answers.length / 2){
 						resultScreen.style.display = "block";
 						success.style.display = "block";
+						wrong.style.display = "none";
+					}else{
+						resultScreen.style.display = "block";
+						wrong.style.display = "block";
+						success.style.display = "none";
 					}
 				}
 				
