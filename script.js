@@ -139,7 +139,7 @@ form.addEventListener("submit", function(e){
 	const name = document.querySelector("#nom").value;
 	const mail = document.querySelector("#mail").value;
 	if(name != "" && mail != "" && name.length >= 3){
-//action à mener si le nom et le mail sont non-vide et lla longueur du nom est >= 3 
+//action à mener si le nom et le mail sont non-vide et la longueur du nom est >= 3 
 		
 		form.style.display = "none";
 		questionsForm.style.display = "block";
@@ -192,8 +192,6 @@ form.addEventListener("submit", function(e){
 						for(let i = 0; i < labelTitle.length; i++){
 							labelTitle[i].textContent = answers[index][i];
 							radiosInput[i].setAttribute("value", answers[index][i]);
-							console.log(labelTitle[i]);
-							console.log(radiosInput[i])
 						}
 						questionsForm.reset();
 					})

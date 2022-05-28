@@ -480,10 +480,8 @@ button
 		height: 33px;
 		width: 90%;
 		text-align: center;
-		margin-left: ;
-		min-width: 80px;
-			/* margin-left: auto;
-			margin-left: auto; */
+		min-width: 300px;
+		max-width: 300px;
 		margin-bottom: 31.43px;
 		font-family: Inter;
 		font-size: 20px;
@@ -502,6 +500,8 @@ button
 		font-family: Inter;
 		height: 33px;
 		width: 90%;
+		min-width: 300px;
+		max-width: 300px;
 		margin-bottom: 5px;
 		margin-left: auto;
 		margin-right: auto;
@@ -517,6 +517,8 @@ button
 	{
 		height: 59px;
 		width: 90%;
+		min-width: 300px;
+		max-width: 300px;
 		margin-left: auto;
 		margin-right: auto;
 		margin-top: 0px;
@@ -525,11 +527,6 @@ button
 		background: #FFFFFF;
 		border: 1px solid #DDDDDD;
 	}
-	.greens
-	{
-		
-	}
-	
 	[type="radio"]
 	{
 		height: 20px;
@@ -568,9 +565,10 @@ button
 	{
 		display: flex;
 		flex-direction: row;
-		justify-content: center;
 		margin-bottom: 60px;
-		
+		width: 90%;
+		min-width: 300px;
+		max-width: 300px;
 	}
 	#orange
 	{
@@ -588,36 +586,36 @@ button
 		display: none;
 	}
 
-#result h1
-{
-	height: 48px;
-	width: 572px;
-	margin-left: 0px;
-	margin-top: 115px;
-	margin-bottom: 41px;
-	border-radius: nullpx;
-	font-family: Inter;
-	font-size: 40px;
-	font-weight: 500;
-	line-height: 48px;
-	letter-spacing: 0em;
-	text-align: center;
+	#result h1
+	{
+		height: 48px;
+		width: 572px;
+		margin-left: 0px;
+		margin-top: 115px;
+		margin-bottom: 41px;
+		border-radius: nullpx;
+		font-family: Inter;
+		font-size: 40px;
+		font-weight: 500;
+		line-height: 48px;
+		letter-spacing: 0em;
+		text-align: center;
 
-}
-#result p
-{
-	height: 24px;
-	width: 572px;
-	margin-bottom: 51.88px;
-	border-radius: nullpx;
-	font-family: Inter;
-	font-size: 20px;
-	font-weight: 500;
-	line-height: 24px;
-	letter-spacing: 0em;
-	text-align: center;
-}
-#result button
+	}
+	#result p
+	{
+		height: 24px;
+		width: 572px;
+		margin-bottom: 51.88px;
+		border-radius: nullpx;
+		font-family: Inter;
+		font-size: 20px;
+		font-weight: 500;
+		line-height: 24px;
+		letter-spacing: 0em;
+		text-align: center;
+	}
+	#result button
 	{
 		align-self: center;
 	}
@@ -649,9 +647,8 @@ button
 	button
 	{
 		height: 59px;
-		width: 60%;
-		
-		border-radius: 0px;
+		width: 50%;
+		margin: 0 auto;
 		border: 1px solid #0880D6; 
 		background-color: #0880D6;
 		color: #fff;
@@ -666,6 +663,8 @@ button
 	#crossdiv
 	{
 		width: 90%;
+		min-width: 300px;
+		max-width: 300px;
 		border: 1px solid #cecece;
 		height: 10px;
 		margin-left: auto;
