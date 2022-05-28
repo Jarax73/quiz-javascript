@@ -138,10 +138,8 @@ form input
 }
 #form-questions h1
 {
-	height: 33px;
+	height: 15%;
 	width: ;
-		/* margin-left: auto;
-		margin-left: auto; */
 	margin-bottom: 31.43px;
 	border-radius: ;
 	font-family: Inter;
@@ -380,6 +378,7 @@ button
 		flex-direction: column;
 		height: 100%;
 		width: 90%;
+		max-width: ;
 		margin: 0;
 		background: #FFFFFF;
 		padding-top: 4%;
@@ -477,12 +476,12 @@ button
 	}
 	#form-questions h1
 	{
-		height: 33px;
+		height: 15%;
 		width: 90%;
 		text-align: center;
 		min-width: 300px;
 		max-width: 300px;
-		margin-bottom: 31.43px;
+		margin-bottom: 10%;
 		font-family: Inter;
 		font-size: 20px;
 		font-weight: 400;
@@ -521,8 +520,7 @@ button
 		max-width: 300px;
 		margin-left: auto;
 		margin-right: auto;
-		margin-top: 0px;
-		margin-bottom: 36px;
+		margin-bottom: 20px;
 		border-radius: 0px;
 		background: #FFFFFF;
 		border: 1px solid #DDDDDD;
@@ -556,6 +554,7 @@ button
 	{
 		display: flex;
 		flex-direction: column;
+		margin-top: 2px;
 	}
 	button
 	{
@@ -565,7 +564,7 @@ button
 	{
 		display: flex;
 		flex-direction: row;
-		margin-bottom: 60px;
+		margin-bottom: 20px;
 		width: 90%;
 		min-width: 300px;
 		max-width: 300px;
@@ -584,30 +583,31 @@ button
 	#result
 	{
 		display: none;
+		
 	}
 
 	#result h1
 	{
 		height: 48px;
-		width: 572px;
-		margin-left: 0px;
-		margin-top: 115px;
+		/* width: 572px; */
+		/* margin-left: 0px; */
+		margin-top: 50px;
 		margin-bottom: 41px;
-		border-radius: nullpx;
+		/* border-radius: nullpx; */
 		font-family: Inter;
 		font-size: 40px;
 		font-weight: 500;
 		line-height: 48px;
 		letter-spacing: 0em;
-		text-align: center;
+		/* text-align: center; */
 
 	}
 	#result p
 	{
 		height: 24px;
-		width: 572px;
+		/* width: 572px; */
 		margin-bottom: 51.88px;
-		border-radius: nullpx;
+		/* border-radius: nullpx; */
 		font-family: Inter;
 		font-size: 20px;
 		font-weight: 500;
@@ -617,7 +617,7 @@ button
 	}
 	#result button
 	{
-		align-self: center;
+		/* align-self: center; */
 	}
 	#result button
 	{
