@@ -110,6 +110,7 @@ form input
 	background: #FFFFFF;
 	border: 1px solid #DDDDDD;
 	box-sizing: border-box;
+	outline: none;
 }
 [type="submit"]
 {
@@ -293,6 +294,14 @@ button
 {
 	margin-top: 30%;
 	margin-bottom: ;
+}
+.hidden
+{
+	display: none;
+}
+.show
+{
+	display: block;
 }
 button
 {
