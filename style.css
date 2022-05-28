@@ -10,7 +10,8 @@ html, body {
 
 body
 {
-	background-color: #e5e5e5;
+/* 	background-color: #e5e5e5; */
+	
 }
 main
 {
@@ -20,6 +21,10 @@ main
 	justify-content: center;
 	align-items: center;
 	background-image: linear-gradient(to right, #a4e5a4, skyblue);
+}
+.red
+{
+	border-color: red;
 }
 section
 {
@@ -69,11 +74,6 @@ section h1
 	color: #555555;
 	margin-bottom: 65px;
 }
-#accueil
-{
-	display: ;
-}
-
 form
 {
 	display:flex;
@@ -139,7 +139,7 @@ form input
 #form-questions h1
 {
 	height: 15%;
-	width: ;
+/* 	width: ; */
 	margin-bottom: 31.43px;
 	border-radius: ;
 	font-family: Inter;
@@ -163,7 +163,6 @@ form input
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 0px;
-	border-radius: nullpx;
 	font-size: 14px;
 	font-weight: 400;
 	line-height: 32px;
@@ -184,24 +183,31 @@ form input
 	background: #FFFFFF;
 	border: 1px solid #DDDDDD;
 }
+/* #radio-style:focus */
+{
+	appearance: inline;
+	border: 1px solid #028A3D;
+}
 .greens
 {
 	
 }
 
-[type="radio"]
+input[type="radio"]
 {
 	height: 20px;
 	width: 20px;
 	margin-left: 19px;
-	margin-top: 20px;
+	margin-bottom: 19px;
 	border-radius: 20px;
-	border: 1px solid #DDDDDD;
+	background: #028A3D;
+	border: 1px solid #028A3D;
 }
 #radio-style label
 {
 	display: inline-block;
 	height: ;
+	appearance: block;
 	width: 100%;
 	margin-left: 18px;
 	margin-top: 19px;
@@ -291,7 +297,6 @@ button
 #points
 {
 	margin-top: 30%;
-	margin-bottom: ;
 }
 .hidden
 {
@@ -351,18 +356,18 @@ button
 	background-color: green;
 	border: 1px solid green;
   }
-  70% {
+  75% {
     margin-left: 0%;
     width: 45%;
-	background-color: orange;
-	border: 1px solid orange;
+		background-color: green;
+		border: 1px solid green;
   }
  
   to {
     margin-left: 0%;
     width: 0%;
-	background-color: red;
-	border: 1px solid red;
+		background-color: green;
+		border: 1px solid green;
   }
 }
 
@@ -372,16 +377,23 @@ button
 	{
 		width: 100%;
 	}
+	main
+	{
+		width: 100%;
+		margin: 0;
+		padding: 0;
+	}
 	section
 	{
 		display: flex;
 		flex-direction: column;
 		height: 100%;
 		width: 90%;
-		max-width: ;
+		min-width: 400px;
+		padding: 0;
 		margin: 0;
 		background: #FFFFFF;
-		padding-top: 4%;
+/* 		padding-top: 4%; */
 		padding-left: 2.5%;
 		padding-right: 2.5%;
 	}
@@ -415,11 +427,6 @@ button
 		color: #555555;
 		margin-bottom: 65px;
 	}
-	#accueil
-	{
-		display: ;
-	}
-	
 	form
 	{
 		display: flex;
@@ -682,27 +689,5 @@ button
 		border-radius: 10px;
 		margin-bottom: 62px;
 		border: 1px solid #cecece;
-	}
-	
-	@keyframes slidein {
-	  from {
-	    margin-left: 0%;
-	    width: 100%;
-		background-color: green;
-		border: 1px solid green;
-	  }
-	  70% {
-	    margin-left: 0%;
-	    width: 45%;
-		background-color: orange;
-		border: 1px solid orange;
-	  }
-	 
-	  to {
-	    margin-left: 0%;
-	    width: 0%;
-		background-color: red;
-		border: 1px solid red;
-	  }
 	}
 }

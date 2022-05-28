@@ -2,9 +2,7 @@
 const accueil = document.querySelectorAll('#accueil .description');
 const form = document.querySelector("#accueil");
 const questionsForm = document.querySelector("#form-questions");
-const radios = document.querySelectorAll('answer-choice');
-const radioStyle = document.querySelectorAll(".radio-style");
-const forLabel = document.querySelectorAll('#radios label');
+const formInput = document.querySelectorAll("#accueil input");
 const resultScreen = document.querySelector("#result");
 const showScore = document.querySelector("#points");
 const questionTitle = document.createElement("h1");
@@ -48,26 +46,33 @@ let oneMinute = 59;
 
 //Initialiser le contenu de questions
 
-const questions = ["Quel est le type d'un fichier JavaScript ?", "Où est-il conseillé d'écrire du JavaScript ?", "Quelle est l'utilité d'une fonction ?", "Comment afficher le message 'Hello World' à l'écran ?", "Comment vider un tableau en JavaScript ?", "Quelle fonction ajoute exactement un élément au début et à la fin d'un tableau ?"];
+const questions = ["Quel sera le resultat de 3+2+'7' ?", "Quel est le type d'un fichier JavaScript ?", "Où est-il conseillé d'écrire du JavaScript ?", "Quelle est l'utilité d'une fonction ?", "Comment afficher le message 'Hello World' à l'écran ?", "Comment vider un tableau en JavaScript ?", "Quelle fonction ajoute exactement un élément au début et à la fin d'un tableau ?", "Quelle sera le resultat de ce script : let a = \[1, 2, 3\]; console.log(a\[6\]);",
+"Quel va donner ce code ? let a = console.log(typeof typeof 1);", "Quelle compagnie a développé JavaScript ?",
+"Comment ajouter une valeur à un tableau ?", "Qu'est-ce que ce code renvoie à la console ? : console.log(1 + '2' + '2');", "Dans quel balise HTML plaçons-nous le code JavaScript ?", "Comment faire appelle à une fonction nommée « sum » ?", "Comment écrire une condition IF en JavaScript ?"];
 let answers = [
+	["327", "12", "14", "57"],
 	[".ts", ".jsx", ".js", ".j"], 
 	["dans la balise head", "dans la balise body", "dans un fichier externe", "aucune bonne reponse"],
 	["ne pas repéter le même code plusieurs fois", "créer des balises html", "créer des boucles", "écrire plusieurs fois le même code"],
 	["msg('Hello World')", "msgBox('Hello World');", "alertBox('Hello World');", "alert('Hello World');"],
 	["arrayList[]", "arrayList(0)", "arrayList.length=0", "arrayList.len(0)"],
-	["push,unshift", "unshift,push", "first,push", "unshift,last"]
+	["push,unshift", "unshift,push", "first,push", "unshift,last"],
+	["undefined", "0", "rien n'apparaît", "erreur de syntaxe"],
+	["string", "number", "erreur de syntaxe", "undefined"],
+	["Mozilla", "Netscape", "Sun Microsystems", "Oracle"],
+	["arr(length).value;", "arr[arr.length]=value;", "arr[]=add(value);", "aucune bonne reponse"],
+	["32", "122", "13", "14"],
+	["<js></js>","<javascript></javascript>", "<script></script>", "<rel></rel>"], 
+	["sum()", "call function sum()", "call sum()", "aucune bonne reponse"], 
+	["if a = 2 then", "if a = 2", "if a = 2 else", "if (a == 2)"]
 ];
-let correct = [".js", "dans un fichier externe", "ne pas repéter le même code plusieurs fois", "alert('Hello World');", "arrayList.length=0", "unshift,push"];
-// let idAnswers = [
-//     ["ts", "jsx", "js", "j"], 
-//     ["head", "boDy", "externe", "none"], 
-//     ["repeter", "balises", "boucle", "same	"]
-// ];
+let correct = ["14",".js", "dans un fichier externe", "ne pas repéter le même code plusieurs fois", "alert('Hello World');", "arrayList.length=0", "unshift,push", "undefined", "string", "Netscape", "arr[arr.length]=value;", "32", "<script></script>", "sum()", "if (a == 2)"];
 
 let points = 0;
 let index = 0;
 
 resultScreen.style.display = "none";
+
 /**
 *@param {String} name >= 3
 *@param {Object} mail 
@@ -83,7 +88,10 @@ function ValidateEmail(name, mail){
 	nameError.textContent = "N’oubliez pas de renseigner votre nom avant de commencer le Quiz. ";
 	mailError.textContent = "N’oubliez pas de renseigner votre email avant de commencer le Quiz";
 	nameError.classList.add("validate");
-	mailError.classList.add("validate");    
+	mailError.classList.add("validate"); 
+	for (let i = 0; i < formInput.length; i++){
+		formInput[i].classList.add("red");
+	}
 	return (false)
 }
 
