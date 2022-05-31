@@ -284,14 +284,10 @@ button
 }
 .success-wrong img
 {
-	margin-top: 10%;
+	margin: 10% auto 0;
 	width: 30%;
 }
-.success
-{
 
-	display: none;
-}
 .wrong
 {
 
@@ -493,6 +489,7 @@ button
 		margin-left: auto;
 		margin-right: auto;
 		margin-bottom: 15px;
+		/* diplay flex; flex direction: row; flex-wrap: wrap */
 		overflow-y: hidden;
 		white-space: nowrap;
 		border-radius: 0px;

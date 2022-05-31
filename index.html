@@ -11,8 +11,7 @@
 <body>
 	<main>
 		<section>
-			<!--formulaire d'accueil-->
-			<form id="accueil">
+			<form id="home">
 			<h1>Javascript Quiz</h1>
 			<p id="description">Évaluez vos connaissances en JavaScript en répondant aux questions que nous avons spécialement sélectionnées pour vous. C'est fun et c'est gratuit. </p>
 			
@@ -25,19 +24,15 @@
 				<input type="submit" value="Commencer"/>
 
 			</form>
-			<!-- Formulaire pour les questions -->
 			<form id="form-questions">
 				
 			</form>
-			<!--Formulaire de résultat-->
-			<form id="result">
-<!-- 				<h1>X</h1>
-				<p>X</p> -->
-				<p class="success-wrong success"><img src="ant-design_check-circle-outlined.png" /></p>
-				<p class="success-wrong wrong"><img src="ant-design_close-circle-outlined.png" /></p>
+			<div id="result">
+				<p class="success-wrong"><img src="ant-design_check-circle-outlined.png" /></p>
+				<!-- <p class="success-wrong wrong"><img src="ant-design_close-circle-outlined.png" /></p> -->
 				<p id="points">X</p>
 				<button id="buton">Accueil</button>
-			</form>
+			</div>
 		</section>
 	</main>
   <script src="script.js"></script>
