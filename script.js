@@ -2,7 +2,7 @@
 const accueil = document.querySelectorAll('#accueil .description');
 const form = document.querySelector("#accueil");
 const questionsForm = document.querySelector("#form-questions");
-const formInput = document.querySelectorAll("#accueil input");
+const formInput = document.querySelectorAll("#accueil .description");
 const resultScreen = document.querySelector("#result");
 const showScore = document.querySelector("#points");
 const questionTitle = document.createElement("h1");
@@ -45,7 +45,7 @@ let interval = null;
 let oneMinute = 59;
 
 //Initialiser le contenu de questions
-
+console.log(form['nom']);
 const questions = ["Quel sera le resultat de 3+2+'7' ?", "Quel est le type d'un fichier JavaScript ?", "Où est-il conseillé d'écrire du JavaScript ?", "Quelle est l'utilité d'une fonction ?", "Comment afficher le message 'Hello World' à l'écran ?", "Comment vider un tableau en JavaScript ?", "Quelle fonction ajoute exactement un élément au début et à la fin d'un tableau ?", "Quelle sera le resultat de ce script : let a = \[1, 2, 3\]; console.log(a\[6\]);",
 "Quel va donner ce code ? let a = console.log(typeof typeof 1);", "Quelle compagnie a développé JavaScript ?",
 "Comment ajouter une valeur à un tableau ?", "Qu'est-ce que ce code renvoie à la console ? : console.log(1 + '2' + '2');", "Dans quel balise HTML plaçons-nous le code JavaScript ?", "Comment faire appelle à une fonction nommée « sum » ?", "Comment écrire une condition IF en JavaScript ?"];
@@ -79,12 +79,12 @@ resultScreen.style.display = "none";
 *Validate name and mail provided by the user
 */
 function ValidateEmail(name, mail){
- if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail) && name.length >= 3)
-  {
+	if (/^[a-z0-9._-]+@[a-z0-9._-]+\.[a-z]{2,3}$/.test(mail) && name.length >= 3)
+	{
 		accueil.style.display = "none";
 		questionsForm.style.display = "block";
-    return (true)
-  }
+	return (true)
+	}
 	nameError.textContent = "N’oubliez pas de renseigner votre nom avant de commencer le Quiz. ";
 	mailError.textContent = "N’oubliez pas de renseigner votre email avant de commencer le Quiz";
 	nameError.classList.add("validate");
@@ -157,12 +157,13 @@ form.addEventListener("submit", function(e){
 			startTimer(oneMinute, timerQuiz);
 			
 			answers[index].forEach(function(answer){
-				let radioStyle = document.createElement("div");
-				radioStyle.addEventListener("click", () => radiosInput.click());
-				radioStyle.setAttribute("class", "radio-style");
+				
 				let radiosInput = document.createElement("input");
 				radiosInput.setAttribute("type", "radio");
 				radiosInput.setAttribute("name", "answer-choice");
+				let radioStyle = document.createElement("div");
+				radioStyle.addEventListener("click", () => radiosInput.click());
+				radioStyle.setAttribute("class", "radio-style");
 				let labelTitle = document.createElement("label");
 				labelTitle.classList.add("answer-choice");
 				radiosInput.setAttribute("value", answer);

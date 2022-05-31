@@ -10,17 +10,21 @@ html, body {
 
 body
 {
-/* 	background-color: #e5e5e5; */
+
 	
 }
 main
 {
 	display: flex;
-	width: 100%;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	height: 100%;
 	background-image: linear-gradient(to right, #a4e5a4, skyblue);
+}
+.green
+{
+	border: 1px solid green;
 }
 .red
 {
@@ -31,23 +35,15 @@ section
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	height: 784px;
-	width: 571px;
-	margin-top: 166px;
-	margin-bottom: 167px;
-	border-radius: 0px;
-	background: #FFFFFF;
-	padding-top: 88px;
-	padding-left: 40px;
-	padding-right: 40px;
+	width: 35%;
+	height: 600px;
+	border: 1px solid #fff;
+	background-color: #fff;
 }
 section h1
 {
-	height: 39px;
-	width: 572px;
-	left: 0px;
-	top: 0px;
-	border-radius: nullpx;
+	margin-top: 5%;
+	margin-bottom: 5%;
 	font-family: Inter;
 	font-size: 32px;
 	font-weight: 500;
@@ -59,12 +55,8 @@ section h1
 }
 #description
 {
-	align-self: center;
-	height: 126px;
-	width: 491px;
-	left: 0px;
-	top: -2px;
-	border-radius: ;
+	width: 70%;
+	margin: 0 auto;
 	font-family: Inter;
 	font-size: 20px;
 	font-weight: 400;
@@ -72,54 +64,41 @@ section h1
 	letter-spacing: 0em;
 	text-align: center;
 	color: #555555;
-	margin-bottom: 65px;
+	margin-bottom: 50px;
 }
 form
 {
-	display:flex;
+	display: flex;
 	flex-direction: column;
 	align-items: center;
 }
 form label
 {
-	height: 17px;
-	width: 429px;
-	align-self: flex-start;
-	margin-left: 35px;
-	left: 0px;
-	top: 0px;
-	border-radius: nullpx;
 	font-family: Inter;
-	font-size: 16px;
+	align-self: flex-start;
+	font-size: 100%;
 	font-weight: 400;
+	margin-bottom: 2%;
+	margin-left: 55px;	
 	line-height: 19px;
 	letter-spacing: 0em;
-	text-align: left;
 	color: #555555;
 }
 form input
 {
-	height: 59px;
-	width: 491px;
-	padding: 21px;
-	margin-top: 15px;
-	margin-bottom: 45px;
-	left: 0px;
-	top: 32px;
-	border-radius: 0px;
+	width: 70%;
+	padding: 10px;
+	margin-bottom: 5%;
 	background: #FFFFFF;
 	border: 1px solid #DDDDDD;
-	box-sizing: border-box;
 	outline: none;
 }
 [type="submit"]
 {
 	height: 59px;
-	width: 226px;
+	width: 40%;
+	margin-top: 30px;
 	padding: 0;
-	left: 0px;
-	top: 0px;
-	border-radius: 0px;
 	background: #028A3D;
 	color: #fff;
 	font-family: Inter;
@@ -138,12 +117,11 @@ form input
 }
 #form-questions h1
 {
-	height: 15%;
-/* 	width: ; */
-	margin-bottom: 31.43px;
-	border-radius: ;
+	width: 300px;
+	height: 70px;
+	margin-top: 30px;
 	font-family: Inter;
-	font-size: 20px;
+	font-size: 100%;
 	font-weight: 400;
 	line-height: 32px;
 	letter-spacing: 0em;
@@ -157,63 +135,70 @@ form input
 	flex-direction: row;
 	justify-content: space-between;
 	font-family: Inter;
-	height: 33px;
-	width: 491px;
-	margin-bottom: 5px;
+	width: 300px;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 0px;
 	font-size: 14px;
 	font-weight: 400;
 	line-height: 32px;
 	letter-spacing: 0em;
 	text-align: left;
 }
-.radio-style
+#crossdiv
 {
-	height: 59px;
-	width: 491px;
+	width: 300px;
+	border: 1px solid #cecece;
+	height: 10px;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 0px;
-	margin-bottom: 36px;
+	margin-bottom: 30px;
+	border-radius: 10px;
+	background-color: #cecece;
+}
+#crossbar
+{
+	animation-duration: 60s;
+	animation-name: slidein;
+	width: 100%;
+	height: 8px;
+	border-radius: 10px;
+	margin-bottom: 62px;
+	border: 1px solid #cecece;
+}
+.radio-style
+{
+	height: 40px;
+	width: 300px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 15px;
 	overflow-y: hidden;
 	white-space: nowrap;
 	border-radius: 0px;
 	background: #FFFFFF;
 	border: 1px solid #DDDDDD;
 }
-/* #radio-style:focus */
-{
-	appearance: inline;
-	border: 1px solid #028A3D;
-}
-.greens
-{
-	
-}
-
 input[type="radio"]
 {
-	height: 20px;
-	width: 20px;
+	height: 40%;
+	width: 5%;
+	margin-top: 12px;
 	margin-left: 19px;
+	margin-right: 19px;
 	margin-bottom: 19px;
-	border-radius: 20px;
-	background: #028A3D;
-	border: 1px solid #028A3D;
 }
-#radio-style label
+input[type='radio']:checked~label
 {
-	display: inline-block;
-	height: ;
-	appearance: block;
+	border: 1px solid green;
+}
+.radio-style label
+{
 	width: 100%;
-	margin-left: 18px;
-	margin-top: 19px;
-	border-radius: nullpx;
-	font-family: Inter;
-	font-size: 20px;
+	margin-left: 0px;
+	margin-bottom: 5px;
+	color: #555555;
+	font-family: Inter, Arial, sans-serif;
+	font-size: 15px;
 	font-weight: 400;
 	line-height: 24px;
 	letter-spacing: 0em;
@@ -224,14 +209,31 @@ input[type="radio"]
 {
 	display: flex;
 	flex-direction: column;
+	
 }
 button
 {
-	margin-top: 50px;
+	height: 50px;
+	width: 45%;
+	margin-top: 25px;
+	margin-bottom: 30px;
+	border-radius: 0px;
+	border: 1px solid #0880D6; 
+	background-color: #0880D6;
+	color: #fff;
+	font-family: Inter;
+	font-size: 20px;
+	font-weight: 500;
+	line-height: 24px;
+	letter-spacing: 0em;
+	text-align: center;
+
 }
 #submit-style
 {
 	display: flex;
+	width: 300px;
+	margin: 0 auto;
 	flex-direction: row;
 	justify-content: space-between;
 }
@@ -248,15 +250,14 @@ button
 #result
 {
 	display: none;
+	width: 100%;
 }
 
 #result h1
 {
-	height: 48px;
-	width: 572px;
-	margin-left: 0px;
-	margin-top: 115px;
-	margin-bottom: 41px;
+	width: 100%;
+	margin-top: 5%;
+	margin-bottom: 30px;
 	font-family: Inter;
 	font-size: 40px;
 	font-weight: 500;
@@ -268,7 +269,7 @@ button
 #result p
 {
 	height: 24px;
-	width: 572px;
+	width: ;
 	margin-bottom: 51.88px;
 	font-family: Inter;
 	font-size: 20px;
@@ -279,24 +280,29 @@ button
 }
 #result button
 {
-	margin-left: 30%;
+	width: 30%;
+	margin-top: ;
+	position: relative;
+	left: 35%;
 }
-
 .success-wrong img
 {
-	width: 25%;
+	margin-top: 10%;
+	width: 30%;
 }
 .success
 {
+
 	display: none;
 }
 .wrong
 {
+
 	display: ;
 }
 #points
 {
-	margin-top: 30%;
+	margin-top: 40%;
 }
 .hidden
 {
@@ -306,48 +312,13 @@ button
 {
 	display: block;
 }
-button
-{
-	height: 59px;
-	width: 226px;
-	border-radius: 0px;
-	border: 1px solid #0880D6; 
-	background-color: #0880D6;
-	color: #fff;
-	font-family: Inter;
-	font-size: 20px;
-	font-weight: 500;
-	line-height: 24px;
-	letter-spacing: 0em;
-	text-align: center;
 
-}
-#crossdiv
-{
-	width: 86%;
-	border: 1px solid #cecece;
-	height: 10px;
-	margin-left: auto;
-	margin-right: auto;
-	margin-bottom: 62px;
-	border-radius: 10px;
-	background-color: #cecece;
-}
-#crossbar
-{
-	animation-duration: 60s;
-	animation-name: slidein;
-	width: 100%;
-	height: 8px;
-	border-radius: 10px;
-	margin-bottom: 62px;
-	border: 1px solid #cecece;
-}
 .validate
 {
 	color: red;
 	width: 80%;
-	margin: -30px 0 10% 0;
+	font-size: 70%;
+	margin: -5% 0 10px 20px;
 }
 @keyframes slidein {
   from {
@@ -373,321 +344,5 @@ button
 
 @media screen and (max-width: 800px){
 	
-	body
-	{
-		width: 100%;
-	}
-	main
-	{
-		width: 100%;
-		margin: 0;
-		padding: 0;
-	}
-	section
-	{
-		display: flex;
-		flex-direction: column;
-		height: 100%;
-		width: 90%;
-		min-width: 400px;
-		padding: 0;
-		margin: 0;
-		background: #FFFFFF;
-/* 		padding-top: 4%; */
-		padding-left: 2.5%;
-		padding-right: 2.5%;
-	}
-	section h1
-	{
-		height: 1%;
-		width: 50%;
-		font-family: Inter;
-		font-size: 32px;
-		font-weight: 500;
-		line-height: 39px;
-		letter-spacing: 0em;
-		text-align: center;
-		color: #555555;
-		
-	}
-	#description
-	{
-		align-self: center;
-		height: 2%;
-		width: 70%;
-		left: 0px;
-		top: -2px;
-		border-radius: ;
-		font-family: Inter;
-		font-size: 20px;
-		font-weight: 400;
-		line-height: 32px;
-		letter-spacing: 0em;
-		text-align: center;
-		color: #555555;
-		margin-bottom: 65px;
-	}
-	form
-	{
-		display: flex;
-		flex-direction: column;
-		align-items: ;
-	}
-	form label
-	{
-		height: 17px;
-		width: 100%;
-		align-self: flex-start;
-		margin-left: 10%;
-		font-family: Inter;
-		font-size: 16px;
-		font-weight: 400;
-		line-height: 19px;
-		letter-spacing: 0em;
-		text-align: left;
-		color: #555555;
-	}
-	form input
-	{
-		height: 5%;
-		width: 80%;
-		padding: 3%;
-		margin-top: 15px;
-		margin-bottom: 45px;
-		background: #FFFFFF;
-		border: 1px solid #DDDDDD;
-		box-sizing: border-box;
-	}
-	[type="submit"]
-	{
-		height: 59px;
-		width: 50%;
-		min-width: 120px;
-		padding: 0;
-		border-radius: 0px;
-		background: #028A3D;
-		color: #fff;
-		font-family: Inter;
-		font-size: 20px;
-		font-weight: 500;
-		line-height: 24px;
-		letter-spacing: 0em;
-		text-align: center;
-		box-shadow: 1px 10px 6px -4px #e5e5e5;
-		cursor: pointer;
-		
-	}
-	#form-questions
-	{
-		display: none;
-	}
-	#form-questions h1
-	{
-		height: 15%;
-		width: 90%;
-		text-align: center;
-		min-width: 300px;
-		max-width: 300px;
-		margin-bottom: 10%;
-		font-family: Inter;
-		font-size: 20px;
-		font-weight: 400;
-		line-height: 32px;
-		letter-spacing: 0em;
-		text-align: center;
-		color: #555555;
 	
-	}
-	#questions-number
-	{
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
-		font-family: Inter;
-		height: 33px;
-		width: 90%;
-		min-width: 300px;
-		max-width: 300px;
-		margin-bottom: 5px;
-		margin-left: auto;
-		margin-right: auto;
-		margin-top: 0px;
-		border-radius: nullpx;
-		font-size: 14px;
-		font-weight: 400;
-		line-height: 32px;
-		letter-spacing: 0em;
-		text-align: left;
-	}
-	.radio-style
-	{
-		height: 59px;
-		width: 90%;
-		min-width: 300px;
-		max-width: 300px;
-		margin-left: auto;
-		margin-right: auto;
-		margin-bottom: 20px;
-		border-radius: 0px;
-		background: #FFFFFF;
-		border: 1px solid #DDDDDD;
-	}
-	[type="radio"]
-	{
-		height: 20px;
-		width: 20px;
-		margin-left: 19px;
-		margin-top: 20px;
-		border-radius: 20px;
-		border: 1px solid #DDDDDD;
-	}
-	#radio-style label
-	{
-		display: inline-block;
-		height: 30px;
-		width: 385px;
-		margin-left: 18px;
-		margin-top: 19px;
-		border-radius: nullpx;
-		font-family: Inter;
-		font-size: 20px;
-		font-weight: 400;
-		line-height: 24px;
-		letter-spacing: 0em;
-		text-align: left;
-	
-	}
-	#radios
-	{
-		display: flex;
-		flex-direction: column;
-		margin-top: 2px;
-	}
-	button
-	{
-		margin-top: 50px;
-	}
-	#submit-style
-	{
-		display: flex;
-		flex-direction: row;
-		margin-bottom: 20px;
-		width: 90%;
-		min-width: 300px;
-		max-width: 300px;
-	}
-	#orange
-	{
-		background-color: #EC880C;
-		border: 1px solid #EC880C;
-	}
-	#green
-	{
-		background-color: #028A3D;
-		border: 1px solid #028A3D;
-	}
-	
-	#result
-	{
-		display: none;
-		
-	}
-
-	#result h1
-	{
-		height: 48px;
-		/* width: 572px; */
-		/* margin-left: 0px; */
-		margin-top: 50px;
-		margin-bottom: 41px;
-		/* border-radius: nullpx; */
-		font-family: Inter;
-		font-size: 40px;
-		font-weight: 500;
-		line-height: 48px;
-		letter-spacing: 0em;
-		/* text-align: center; */
-
-	}
-	#result p
-	{
-		height: 24px;
-		/* width: 572px; */
-		margin-bottom: 51.88px;
-		/* border-radius: nullpx; */
-		font-family: Inter;
-		font-size: 20px;
-		font-weight: 500;
-		line-height: 24px;
-		letter-spacing: 0em;
-		text-align: center;
-	}
-	#result button
-	{
-		/* align-self: center; */
-	}
-	#result button
-	{
-		width: 40%;
-		min-width: 50px;
-		margin-bottom: 10%;
-	}
-	
-	
-	.success-wrong img
-	{
-		width: 25%;
-	}
-	.success
-	{
-		display: none;
-	}
-	.wrong
-	{
-		display: none;
-	}
-	#points
-	{
-		margin-top: 30%;
-		margin-bottom: ;
-	}
-	button
-	{
-		height: 59px;
-		width: 50%;
-		margin: 0 auto;
-		border: 1px solid #0880D6; 
-		background-color: #0880D6;
-		color: #fff;
-		font-family: Inter;
-		font-size: 20px;
-		font-weight: 500;
-		line-height: 24px;
-		letter-spacing: 0em;
-		text-align: center;
-	
-	}
-	#crossdiv
-	{
-		width: 90%;
-		min-width: 300px;
-		max-width: 300px;
-		border: 1px solid #cecece;
-		height: 10px;
-		margin-left: auto;
-		margin-right: auto;
-		margin-bottom: 62px;
-		border-radius: 10px;
-		background-color: #cecece;
-	}
-	#crossbar
-	{
-		animation-duration: 60s;
-		animation-name: slidein;
-		width: 100%;
-		height: 8px;
-		border-radius: 10px;
-		margin-bottom: 62px;
-		border: 1px solid #cecece;
-	}
 }
