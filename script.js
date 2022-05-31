@@ -220,8 +220,10 @@ form.addEventListener("submit", function(e){
 							labelTitle[i].textContent = answers[index][i];
 							radiosInput[i].setAttribute("value", answers[index][i]);
 						}
+						questionsForm.reset();
 					})
-				} 
+				}
+					
 				else{
 					showResult(name, mail);
 				}	
