@@ -14,6 +14,8 @@ main
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	width: 100%;
+	min-width: 400px;
 	height: 100%;
 	background-image: linear-gradient(to right, #a4e5a4, skyblue);
 }
@@ -338,13 +340,16 @@ button
 }
 
 @media screen and (max-width: 800px){
+	
 	main
 	{
 		display: flex;
+		width: 100%;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		margin-bottom: 0;
+		height: 120%;
+		padding-bottom: 0;
 		background-image: linear-gradient(to right, #a4e5a4, skyblue);
 	}
 	section
