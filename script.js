@@ -35,6 +35,7 @@ quitbtn.setAttribute("id", "orange");
 quitbtn.textContent  = "Quitter";
 nextbtn.setAttribute("id", "green");
 nextbtn.textContent = "Suivant";
+nextbtn.disabled = true;
 stylebtn.setAttribute("id", "submit-style");
 resultScreen.prepend(resultMail);
 resultScreen.prepend(resultName);
@@ -151,6 +152,7 @@ function startTimer(duration, display) {
 		{
 			timer = duration;
 			clearInterval(interval)
+			nextbtn.disabled = false;
 			nextbtn.click()
 		}
 
@@ -171,14 +173,17 @@ form.addEventListener("submit", function(e){
 			questionTitle.textContent = questions[index];
 			questionCounter.textContent = `Question ${index + 1}/${questions.length}`;
 			startTimer(oneMinute, timerQuiz);
-			
+			nextbtn.disabled = true;
 			answers[index].forEach(function(answer){
 				
 				let radiosInput = document.createElement("input");
 				radiosInput.setAttribute("type", "radio");
 				radiosInput.setAttribute("name", "answer-choice");
 				let radioStyle = document.createElement("div");
-				radioStyle.addEventListener("click", () => radiosInput.click());
+				radioStyle.addEventListener("click", function(){ 	
+					radiosInput.click();
+					nextbtn.disabled = false;
+				});
 				radioStyle.setAttribute("class", "radio-style");
 				let labelTitle = document.createElement("label");
 				labelTitle.classList.add("answer-choice");
@@ -211,6 +216,7 @@ form.addEventListener("submit", function(e){
 				index++;	
 				
 				if(index < answers.length ){
+					nextbtn.disabled = true;
 					questionTitle.textContent = questions[index];
 					questionCounter.textContent = `Question ${index + 1}/${questions.length}`;
 					answers[index].forEach(function(){
