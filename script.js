@@ -147,8 +147,6 @@ function answersContent(){
 		let radioStyle = document.createElement("div");
 		radioStyle.addEventListener("click", function(){ 	
 			radiosInput.click();
-			radioStyle.setAttribute("class", "green");
-			console.log(radioStyle);
 			nextButton.disabled = false;
 		});
 		radioStyle.setAttribute("class", "radio-style");
@@ -164,6 +162,9 @@ function answersContent(){
 }
 function nextAnswersContent(){
 	if(index < answers.length ){
+		if(index == answers.length - 1){
+			nextButton.textContent = "Terminer";
+		}
 		nextButton.disabled = true;
 		questionsContent();
 		answers[index].forEach(function(){
