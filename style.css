@@ -269,13 +269,13 @@ button
 	border: 1px solid #028A3D;
 	opacity: 0.4;
 }
-#result
+#result-screen
 {
 	display: none;
 	width: 100%;
 }
 
-#result h1
+#result-screen h1
 {
 	width: 100%;
 	margin-top: 5%;
@@ -288,7 +288,7 @@ button
 	text-align: center;
 
 }
-#result p
+#result-screen p
 {
 	height: 24px;
 	margin-bottom: 51.88px;
@@ -299,7 +299,7 @@ button
 	letter-spacing: 0em;
 	text-align: center;
 }
-#result button
+#result-screen button
 {
 	width: 30%;
 	margin-bottom: 20%;
@@ -580,7 +580,7 @@ button
 	{
 		margin-top: 30%;
 	}
-	#result button
+	#result-screen button
 	{
 		width: 30%;
 		position: relative;
