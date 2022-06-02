@@ -22,10 +22,21 @@ main
 .green
 {
 	border: 1px solid green;
+	display: flex;
+	height: 50px;
+	min-height: 100%;
+	width: 300px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 15px;
+	overflow-y: hidden;
+	border-radius: 0px;
+	background: #FFFFFF;
+	
 }
 .red
 {
-	border-color: red;
+	border: 1px solid red;
 }
 section
 {
@@ -71,7 +82,7 @@ form
 	align-items: center;
 	width: 90%;
 }
-form label
+.home-label
 {
 	font-family: Inter;
 	align-self: flex-start;
@@ -201,6 +212,7 @@ input[type="radio"]:checked
 {
 	width: 100%;
 	margin-left: 0;
+	margin-top: 15px;
 	color: #555555;
 	font-family: Inter, Arial, sans-serif;
 	font-size: 100%;
@@ -299,7 +311,7 @@ button
 	margin: 10% auto 0;
 	width: 30%;
 }
-#points
+#scores
 {
 	margin-top: 30%;
 }
@@ -317,7 +329,7 @@ button
 	color: red;
 	width: 80%;
 	font-size: 70%;
-	margin: -5% 0 10px 20px;
+	margin: -5% 0 10px 15px;
 }
 @keyframes slidein {
   from {
@@ -354,6 +366,7 @@ button
 		padding-bottom: 0;
 		background-image: linear-gradient(to right, #a4e5a4, skyblue);
 	}
+	
 	section
 	{
 		display: flex;
@@ -367,10 +380,10 @@ button
 	}
 	section h1
 	{
-		margin-top: 3%;
+		margin-top: 0;
 		margin-bottom: 2%;
 		font-family: Inter;
-		font-size: 150%;
+		font-size: 130%;
 		font-weight: 500;
 		line-height: 39px;
 		letter-spacing: 0em;
@@ -383,7 +396,7 @@ button
 		width: 70%;
 		margin: 0 auto;
 		font-family: Inter;
-		font-size: 90%;
+		font-size: 74%;
 		font-weight: 400;
 		line-height: 32px;
 		letter-spacing: 0em;
@@ -397,14 +410,14 @@ button
 		flex-direction: column;
 		align-items: center;
 	}
-	form label
+	.home-label
 	{
 		font-family: Inter;
 		align-self: flex-start;
 		font-size: 100%;
 		font-weight: 400;
 		margin-bottom: 2%;
-		margin-left: 55px;	
+		margin-left: 42px;	
 		line-height: 19px;
 		letter-spacing: 0em;
 		color: #555555;
@@ -440,9 +453,9 @@ button
 	}
 	#form-questions h1
 	{
-		width: 300px;
+		width: 350px;
 		height: 50px;
-		margin-top: 30px;
+		margin: auto 30px;
 		font-family: Inter;
 		font-size: 90%;
 		font-weight: 400;
@@ -563,7 +576,7 @@ button
 		margin-top: 0%;
 		width: 30%;
 	}
-	#points
+	#scores
 	{
 		margin-top: 30%;
 	}
@@ -572,5 +585,12 @@ button
 		width: 30%;
 		position: relative;
 		left: 35%;
+	}
+	.validate
+	{
+		color: red;
+		width: 80%;
+		font-size: 50%;
+		margin: -5% 0 10px 15px;
 	}
 }

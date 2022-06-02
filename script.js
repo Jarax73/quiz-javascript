@@ -1,42 +1,43 @@
 const form = document.querySelector("#home");
-const questionsForm = document.querySelector("#form-questions");
-const resultScreen = document.querySelector("#result");
-const showScore = document.querySelector("#points");
-const questionTitle = document.createElement("h1");
-const questionCounter = document.createElement("p");
-const questionsNumber = document.createElement("div");
-const timerQuiz = document.createElement("p");
-const crossdiv = document.createElement('div');
-const crossbar = document.createElement('p');
-const radioIn = document.createElement('div');
-const questionAnswers = document.createElement("div");
-const quitbtn = document.createElement("button");
-const nextbtn = document.createElement("button");
-const stylebtn = document.createElement("div");
+const formInput = document.querySelectorAll('.home-input');
 const nameError = document.querySelector("#name");
 const mailError = document.querySelector("#email");
-const resultImage = document.querySelector("img");
-const backWelcome = document.querySelector("#buton");
+const questionsForm = document.querySelector("#form-questions");
+const questionTitle = document.createElement("h1");
+const questionCounterAndTimerContainer = document.createElement("div");
+const questionCounter = document.createElement("p");
+const timerQuiz = document.createElement("p");
+const progressBarContainer = document.createElement('div');
+const progressBar = document.createElement('p');
+const answersChoiceContainer = document.createElement("div");
+const inputsContainer = document.createElement('div');
+const buttonContainer = document.createElement("div");
+const quitButton = document.createElement("button");
+const nextButton = document.createElement("button");
+const resultScreen = document.querySelector("#result");
 const resultName = document.createElement("h1");
 const resultMail = document.createElement("p");
+const resultImage = document.querySelector("img");
+const showScore = document.querySelector("#scores");
+const resultButton = document.querySelector("#buton");
 
 questionsForm.append(questionTitle);
-questionsNumber.append(questionCounter);
-questionsNumber.setAttribute("id", "questions-number");
+questionCounterAndTimerContainer.append(questionCounter);
+questionCounterAndTimerContainer.setAttribute("id", "questions-number");
 timerQuiz.setAttribute("id", "time");
-questionsNumber.append(timerQuiz);
-questionsForm.append(questionsNumber);
-crossdiv.setAttribute("id", "crossdiv");
-crossbar.setAttribute("id", "crossbar");
-crossdiv.appendChild(crossbar);
-questionsForm.appendChild(crossdiv);
-questionAnswers.setAttribute("id", "radios");
-quitbtn.setAttribute("id", "orange");
-quitbtn.textContent  = "Quitter";
-nextbtn.setAttribute("id", "green");
-nextbtn.textContent = "Suivant";
-nextbtn.disabled = true;
-stylebtn.setAttribute("id", "submit-style");
+questionCounterAndTimerContainer.append(timerQuiz);
+questionsForm.append(questionCounterAndTimerContainer);
+progressBarContainer.setAttribute("id", "progressBarContainer");
+progressBar.setAttribute("id", "progressBar");
+progressBarContainer.appendChild(progressBar);
+questionsForm.appendChild(progressBarContainer);
+answersChoiceContainer.setAttribute("id", "radios");
+quitButton.setAttribute("id", "orange");
+quitButton.textContent  = "Quitter";
+nextButton.setAttribute("id", "green");
+nextButton.textContent = "Suivant";
+nextButton.disabled = true;
+buttonContainer.setAttribute("id", "submit-style");
 resultScreen.prepend(resultMail);
 resultScreen.prepend(resultName);
 
@@ -94,15 +95,11 @@ const correct = [
 
 let interval = null;
 let oneMinute = 59;
-let points = 0;
+let scores = 0;
 let index = 0;
+let name = "";
+let mail = "";
 
-
-/**
-*@param {String} name >= 3
-*@param {Object} mail 
-*Validate name and mail provided by the user
-*/
 function ValidateEmail(name, mail){
 	if (/^[a-z0-9._-]+@[a-z0-9._-]+\.[a-z]{2,3}$/.test(mail) && name.length >= 3)
 	{
@@ -115,29 +112,9 @@ function ValidateEmail(name, mail){
 	nameError.classList.add("validate");
 	mailError.classList.add("validate"); 
 	for (let i = 0; i < formInput.length; i++){
-		formInput[i].classList.add("red");
+		formInput[i].setAttribute("class", "red");
 	}
 	return (false)
-}
-
-/**
-*@param {String} name : name of the user to show on result
-*@param {Object} mail : mail of the user to show on result
-*@return {resultScreen}
-*/
-function showResult(name, mail){
-	nextbtn.click();
-	showScore.textContent = `${points}/${questions.length}`;
-	resultName.textContent = name;
-	resultMail.textContent = mail;
-	questionsForm.style.display = "none";
-	resultScreen.style.display = "block";
-	resultImage.style.display = "block";
-	if(points >= answers.length / 2){
-		resultImage.src = "ant-design_check-circle-outlined.png";
-	}else{
-		resultImage.src = "ant-design_close-circle-outlined.png";
-	}
 }
 
 function startTimer(duration, display) {
@@ -152,101 +129,128 @@ function startTimer(duration, display) {
 		{
 			timer = duration;
 			clearInterval(interval)
-			nextbtn.disabled = false;
-			nextbtn.click()
+			nextButton.disabled = false;
+			nextButton.click()
 		}
 
 	}, 1000);
 }
 
+function questionsContent(){
+	questionTitle.textContent = questions[index];
+	questionCounter.textContent = `Question ${index + 1}/${questions.length}`;
+	startTimer(oneMinute, timerQuiz);
+}
 
-form.addEventListener("submit", function(e){
-    e.preventDefault();
-	
-	const name = document.querySelector("#nom").value;
-	const mail = document.querySelector("#mail").value;
+function answersContent(){
+	answers[index].forEach(function(answer){	
+		let radiosInput = document.createElement("input");
+		radiosInput.setAttribute("type", "radio");
+		radiosInput.setAttribute("name", "answer-choice");
+		let radioStyle = document.createElement("div");
+		radioStyle.addEventListener("click", function(){ 	
+			radiosInput.click();
+			radioStyle.setAttribute("class", "green");
+			console.log(radioStyle);
+			nextButton.disabled = false;
+		});
+		radioStyle.setAttribute("class", "radio-style");
+		let labelTitle = document.createElement("label");
+		labelTitle.classList.add("answer-choice");
+		radiosInput.setAttribute("value", answer);
+		labelTitle.textContent = answer;
+		radioStyle.appendChild(radiosInput);
+		radioStyle.appendChild(labelTitle);
+		inputsContainer.append(radioStyle);
+		answersChoiceContainer.append(inputsContainer);
+	})
+}
 
+function showContent(){
 	if(name != "" && mail != "" && name.length >= 3){
 		form.style.display = "none";
 		questionsForm.style.display = "block";
 		if(index < questions.length){
-			questionTitle.textContent = questions[index];
-			questionCounter.textContent = `Question ${index + 1}/${questions.length}`;
-			startTimer(oneMinute, timerQuiz);
-			nextbtn.disabled = true;
-			answers[index].forEach(function(answer){
-				
-				let radiosInput = document.createElement("input");
-				radiosInput.setAttribute("type", "radio");
-				radiosInput.setAttribute("name", "answer-choice");
-				let radioStyle = document.createElement("div");
-				radioStyle.addEventListener("click", function(){ 	
-					radiosInput.click();
-					nextbtn.disabled = false;
-				});
-				radioStyle.setAttribute("class", "radio-style");
-				let labelTitle = document.createElement("label");
-				labelTitle.classList.add("answer-choice");
-				radiosInput.setAttribute("value", answer);
-				labelTitle.textContent = answer;
-				radioStyle.appendChild(radiosInput);
-				radioStyle.appendChild(labelTitle);
-				radioIn.append(radioStyle);
-				questionAnswers.append(radioIn);
-			})
-			questionAnswers.appendChild(stylebtn);
-			stylebtn.appendChild(quitbtn);
-			stylebtn.appendChild(nextbtn);
-	
-			nextbtn.addEventListener("click", function(e){
-				e.preventDefault();
-				crossbar.remove();
-				crossdiv.appendChild(crossbar)
-				startTimer(oneMinute, timerQuiz);
-				/*TODO 
-				create a while loop for index < answers.length*/
-				let chose = document.querySelector('input[name="answer-choice"]:checked');
-				if(chose){
-					chose = chose.value;
-				}
-				
-				if(chose == correct[index]){
-					points++;
-				}
-				index++;	
-				
-				if(index < answers.length ){
-					nextbtn.disabled = true;
-					questionTitle.textContent = questions[index];
-					questionCounter.textContent = `Question ${index + 1}/${questions.length}`;
-					answers[index].forEach(function(){
-						labelTitle = document.querySelectorAll(".answer-choice");
-						radiosInput = document.querySelectorAll("[type='radio']");
-						for(let i = 0; i < labelTitle.length; i++){
-							labelTitle[i].textContent = answers[index][i];
-							radiosInput[i].setAttribute("value", answers[index][i]);
-						}
-						questionsForm.reset();
-					})
-				}
-					
-				else{
-					showResult(name, mail);
-				}	
-			});
-			quitbtn.addEventListener("click", function(event){
-				event.preventDefault();
-				showResult(name, mail);
-			});
-			questionsForm.appendChild(questionAnswers);
+			questionsContent();
+			answersContent();
+			
+			nextButton.disabled = true;
+			answersChoiceContainer.appendChild(buttonContainer);
+			buttonContainer.appendChild(quitButton);
+			buttonContainer.appendChild(nextButton);
+			questionsForm.appendChild(answersChoiceContainer);
 		}
 	}
 	else
 	{
 		ValidateEmail(name, mail);
 	}
-	backWelcome.addEventListener("click", function(e){
-		e.preventDefault();
-		window.location.reload();
-	});
+}
+
+function showResult(name, mail){
+	nextButton.click();
+	showScore.textContent = `${scores}/${questions.length}`;
+	resultName.textContent = name;
+	resultMail.textContent = mail;
+	questionsForm.style.display = "none";
+	resultScreen.style.display = "block";
+	resultImage.style.display = "block";
+	if(scores >= answers.length / 2){
+		resultImage.src = "ant-design_check-circle-outlined.png";
+	}else{
+		resultImage.src = "ant-design_close-circle-outlined.png";
+	}
+}
+
+form.addEventListener("submit", function(e){
+	e.preventDefault();	
+	name = document.querySelector("#nom").value;
+	mail = document.querySelector("#mail").value;
+	showContent();
+	
+});
+
+nextButton.addEventListener("click", function(e){
+	e.preventDefault();
+	progressBar.remove();
+	progressBarContainer.appendChild(progressBar)
+	startTimer(oneMinute, timerQuiz);
+	let chose = document.querySelector('input[name="answer-choice"]:checked');
+	if(chose){
+		chose = chose.value;
+	}
+	
+	if(chose == correct[index]){
+		scores++;
+	}
+	index++;	
+	
+	if(index < answers.length ){
+		nextButton.disabled = true;
+		questionTitle.textContent = questions[index];
+		questionCounter.textContent = `Question ${index + 1}/${questions.length}`;
+		answers[index].forEach(function(){
+			labelTitle = document.querySelectorAll(".answer-choice");
+			radiosInput = document.querySelectorAll("[type='radio']");
+			for(let i = 0; i < labelTitle.length; i++){
+				labelTitle[i].textContent = answers[index][i];
+				radiosInput[i].setAttribute("value", answers[index][i]);
+			}
+			questionsForm.reset();
+		})
+	}
+		
+	else{
+		showResult(name, mail);
+	}	
+});
+
+quitButton.addEventListener("click", function(event){
+	event.preventDefault();
+	showResult(name, mail);
+});
+
+resultButton.addEventListener("click", function(e){
+	e.preventDefault();
+	window.location.reload();
 });
