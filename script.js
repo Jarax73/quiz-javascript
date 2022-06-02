@@ -116,7 +116,6 @@ function ValidateEmail(name, mail){
 	}
 	return (false)
 }
-
 function startTimer(duration, display) {
 	clearInterval(interval)
 	let timer = duration, seconds
@@ -135,13 +134,11 @@ function startTimer(duration, display) {
 
 	}, 1000);
 }
-
 function questionsContent(){
 	questionTitle.textContent = questions[index];
 	questionCounter.textContent = `Question ${index + 1}/${questions.length}`;
 	startTimer(oneMinute, timerQuiz);
 }
-
 function answersContent(){
 	answers[index].forEach(function(answer){	
 		let radiosInput = document.createElement("input");
@@ -165,28 +162,47 @@ function answersContent(){
 		answersChoiceContainer.append(inputsContainer);
 	})
 }
-
-function showContent(){
-	if(name != "" && mail != "" && name.length >= 3){
-		form.style.display = "none";
-		questionsForm.style.display = "block";
-		if(index < questions.length){
-			questionsContent();
-			answersContent();
-			
-			nextButton.disabled = true;
-			answersChoiceContainer.appendChild(buttonContainer);
-			buttonContainer.appendChild(quitButton);
-			buttonContainer.appendChild(nextButton);
-			questionsForm.appendChild(answersChoiceContainer);
-		}
-	}
-	else
-	{
-		ValidateEmail(name, mail);
+function nextAnswersContent(){
+	if(index < answers.length ){
+		nextButton.disabled = true;
+		questionsContent();
+		answers[index].forEach(function(){
+			labelTitle = document.querySelectorAll(".answer-choice");
+			radiosInput = document.querySelectorAll("[type='radio']");
+			for(let i = 0; i < labelTitle.length; i++){
+				labelTitle[i].textContent = answers[index][i];
+				radiosInput[i].setAttribute("value", answers[index][i]);
+			}
+			questionsForm.reset();
+		})
+	}else{
+		showResult(name, mail);
 	}
 }
-
+function showContent(){
+	
+	form.style.display = "none";
+	questionsForm.style.display = "block";
+	if(index < questions.length){
+		questionsContent();
+		answersContent();
+		
+		nextButton.disabled = true;
+		answersChoiceContainer.appendChild(buttonContainer);
+		buttonContainer.appendChild(quitButton);
+		buttonContainer.appendChild(nextButton);
+		questionsForm.appendChild(answersChoiceContainer);
+	}
+}
+function inputCheckedVerification(){
+	let inputChecked = document.querySelector('input[name="answer-choice"]:checked');
+	if(inputChecked){
+		inputChecked = inputChecked.value;
+		if(inputChecked == correct[index]){
+			scores++;
+		}
+	}
+}
 function showResult(name, mail){
 	nextButton.click();
 	showScore.textContent = `${scores}/${questions.length}`;
@@ -201,55 +217,29 @@ function showResult(name, mail){
 		resultImage.src = "ant-design_close-circle-outlined.png";
 	}
 }
-
 form.addEventListener("submit", function(e){
-	e.preventDefault();	
+	e.preventDefault();
 	name = document.querySelector("#nom").value;
 	mail = document.querySelector("#mail").value;
+	if(name != "" && mail != "" && name.length >= 3){
 	showContent();
-	
+	}else{
+		ValidateEmail(name, mail);
+	}
 });
-
 nextButton.addEventListener("click", function(e){
 	e.preventDefault();
 	progressBar.remove();
 	progressBarContainer.appendChild(progressBar)
 	startTimer(oneMinute, timerQuiz);
-	let chose = document.querySelector('input[name="answer-choice"]:checked');
-	if(chose){
-		chose = chose.value;
-	}
-	
-	if(chose == correct[index]){
-		scores++;
-	}
-	index++;	
-	
-	if(index < answers.length ){
-		nextButton.disabled = true;
-		questionTitle.textContent = questions[index];
-		questionCounter.textContent = `Question ${index + 1}/${questions.length}`;
-		answers[index].forEach(function(){
-			labelTitle = document.querySelectorAll(".answer-choice");
-			radiosInput = document.querySelectorAll("[type='radio']");
-			for(let i = 0; i < labelTitle.length; i++){
-				labelTitle[i].textContent = answers[index][i];
-				radiosInput[i].setAttribute("value", answers[index][i]);
-			}
-			questionsForm.reset();
-		})
-	}
-		
-	else{
-		showResult(name, mail);
-	}	
+	inputCheckedVerification();	
+	index++;
+	nextAnswersContent();	
 });
-
 quitButton.addEventListener("click", function(event){
 	event.preventDefault();
 	showResult(name, mail);
 });
-
 resultButton.addEventListener("click", function(e){
 	e.preventDefault();
 	window.location.reload();
