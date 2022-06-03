@@ -160,7 +160,7 @@ function answersContent(){
 		answersChoiceContainer.append(inputsContainer);
 	})
 }
-function nextAnswersContent(){
+function nextQuestionsContent(){
 	if(index < answers.length ){
 		if(index == answers.length - 1){
 			nextButton.textContent = "Terminer";
@@ -187,7 +187,6 @@ function showContent(){
 	if(index < questions.length){
 		questionsContent();
 		answersContent();
-		
 		nextButton.disabled = true;
 		answersChoiceContainer.appendChild(buttonContainer);
 		buttonContainer.appendChild(quitButton);
@@ -235,7 +234,7 @@ nextButton.addEventListener("click", function(e){
 	startTimer(oneMinute, timerQuiz);
 	inputCheckedVerification();	
 	index++;
-	nextAnswersContent();	
+	nextQuestionsContent();	
 });
 quitButton.addEventListener("click", function(event){
 	event.preventDefault();
