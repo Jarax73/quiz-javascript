@@ -123,15 +123,15 @@ form input
 #form-questions
 {
 	display: none;
-	width: 400px;
+	width: 350px;
 }
 #form-questions h1
 {
-	width: 400px;
-	height: 40px;
+	width: 350px;
+	height: 30px;
 	margin-top: 15%;
 	font-family: Inter;
-	font-size: 100%;
+	font-size: 90%;
 	font-weight: 400;
 	line-height: 32px;
 	letter-spacing: 0em;
@@ -145,7 +145,7 @@ form input
 	flex-direction: row;
 	justify-content: space-between;
 	font-family: Inter;
-	width: 400px;
+	width: 350px;
 	margin-left: auto;
 	margin-right: auto;
 	font-size: 14px;
@@ -156,7 +156,7 @@ form input
 }
 #progressBarContainer
 {
-	width: 400px;
+	width: 350px;
 	border: 1px solid #cecece;
 	height: 10px;
 	margin-left: auto;
@@ -186,10 +186,10 @@ form input
 }
 input[type="radio"]
 {
-	height: 40px;
-	width: 40px;
+	height: 25px;
+	width: 25px;
 	border-color: #cecece;
-	margin-top: 0px;
+	margin-top: -5px;
 	margin-left: 25px;
 	margin-right: 30px;
 	margin-bottom: 0px;
@@ -197,7 +197,7 @@ input[type="radio"]
 input[type="radio"]:checked
 {
 	appearance: none;
-	margin-top: 3px;
+	margin-top: -2px;
 	margin-left: 25px;
 	padding-left: -10px;
 	width: 0px;
@@ -212,16 +212,16 @@ input[type="radio"]:checked~label
 }
 .radio-style label
 {
-	height: 40px;
+	height: 25px;
 	min-height: 100%;
 	overflow-y: hidden;
 	border-radius: 0px;
 	box-sizing: content-box;
 	border: 1px solid #DDDDDD;
-	width: 400px;
+	width: 300px;
 	padding-left: 70px;
-	padding-top: 17px;
-	margin-left: -86px;
+	padding-top: 7px;
+	margin-left: -75px;
 	margin-top: -9px;
 	color: #555555;
 	font-family: Inter, Arial, sans-serif;
@@ -239,8 +239,8 @@ input[type="radio"]:checked~label
 }
 button
 {
-	height: 50px;
-	width: 45%;
+	height: 40px;
+	width: 46%;
 	margin-top: 25px;
 	margin-bottom: 30px;
 	border: 1px solid #0880D6; 
@@ -253,11 +253,12 @@ button
 	line-height: 24px;
 	letter-spacing: 0em;
 	text-align: center;
+	cursor: pointer;
 }
 #submit-style
 {
 	display: flex;
-	width: 400px;
+	width: 350px;
 	margin: 0 auto;
 	flex-direction: row;
 	justify-content: space-between;
@@ -288,12 +289,12 @@ button
 #result-screen h1
 {
 	width: 100%;
-	margin-top: 10%;
-	margin-bottom: 30px;
+	margin-top: 4%;
+	margin-bottom: 0;
 	font-family: Inter;
-	font-size: 40px;
+	font-size: 30px;
 	font-weight: 500;
-	line-height: 48px;
+	line-height: 78px;
 	letter-spacing: 0em;
 	text-align: center;
 
@@ -301,7 +302,7 @@ button
 #result-screen p
 {
 	height: 24px;
-	margin-bottom: 40px;
+	margin-bottom: 0px;
 	font-family: Inter;
 	font-size: 20px;
 	font-weight: 500;
@@ -311,19 +312,20 @@ button
 }
 #result-screen button
 {
-	width: 40%;
+	width: 30%;
 	margin-bottom: 30%;
 	position: relative;
-	left: 30%;
+	font-size: 82%;
+	left: 35%;
 }
 .success-wrong img
 {
-	margin: 10% auto 0;
-	width: 30%;
+	margin: 5% auto 0;
+	width: 27%;
 }
 #scores
 {
-	margin-top: 30%;
+	margin-top: 27%;
 }
 .hidden
 {
