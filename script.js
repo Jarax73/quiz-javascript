@@ -20,6 +20,8 @@ const resultMail = document.createElement("p");
 const resultImage = document.querySelector("img");
 const showScore = document.querySelector("#scores");
 const resultButton = document.querySelector("#buton");
+const homeInputName = document.querySelector("#nom");
+const homeInputMail = document.querySelector("#mail");
 
 questionsForm.append(questionTitle);
 questionCounterAndTimerContainer.append(questionCounter);
@@ -105,16 +107,30 @@ function ValidateEmail(name, mail){
 	{
 		home.style.display = "none";
 		questionsForm.style.display = "block";
-	return (true)
-	}
-	nameError.textContent = "N’oubliez pas de renseigner votre nom avant de commencer le Quiz. ";
-	mailError.textContent = "N’oubliez pas de renseigner votre email avant de commencer le Quiz";
-	nameError.classList.add("validate");
-	mailError.classList.add("validate"); 
-	for (let i = 0; i < formInput.length; i++){
-		formInput[i].setAttribute("class", "red");
-	}
-	return (false)
+	}else{
+		if(name && !mail){
+			mailError.textContent = "N’oubliez pas de renseigner votre email avant de commencer le Quiz";
+			nameError.textContent = "";
+			mailError.classList.add("validate");
+			homeInputName.classList.remove("red");
+			homeInputMail.classList.add("red");
+		}else if(!name && mail){
+			nameError.textContent = "N’oubliez pas de renseigner votre nom avant de commencer le Quiz. ";
+			mailError.textContent = "";
+			nameError.classList.add("validate");
+			homeInputName.classList.add("red");
+			homeInputMail.classList.remove("red");
+		}else{
+			nameError.textContent = "N’oubliez pas de renseigner votre nom avant de commencer le Quiz. ";
+			mailError.textContent = "N’oubliez pas de renseigner votre email avant de commencer le Quiz";
+			nameError.classList.add("validate");
+			mailError.classList.add("validate");
+			homeInputName.classList.add("red");
+			homeInputMail.classList.add("red");
+		}
+		
+	}	 
+	
 }
 function startTimer(duration, display) {
 	clearInterval(interval)
