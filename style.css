@@ -29,10 +29,9 @@ main
 	margin-left: auto;
 	margin-right: auto;
 	margin-bottom: 15px;
-	overflow-y: hidden;
+	overflow-y: scroll;
 	border-radius: 0px;
 	background: #FFFFFF;
-	
 }
 .red
 {
@@ -61,7 +60,6 @@ section h1
 	letter-spacing: 0em;
 	text-align: center;
 	color: #555555;
-	
 }
 #description
 {
@@ -137,7 +135,6 @@ form input
 	letter-spacing: 0em;
 	text-align: center;
 	color: #555555;
-
 }
 #questions-number
 {
@@ -178,7 +175,6 @@ form input
 .radio-style
 {
 	display: flex;
-	
 	margin-left: auto;
 	margin-right: auto;
 	margin-bottom: 30px;
@@ -214,7 +210,7 @@ input[type="radio"]:checked~label
 {
 	height: 25px;
 	min-height: 100%;
-	overflow-y: hidden;
+	overflow-y: scroll;
 	border-radius: 0px;
 	box-sizing: content-box;
 	border: 1px solid #DDDDDD;
@@ -230,7 +226,6 @@ input[type="radio"]:checked~label
 	line-height: 24px;
 	letter-spacing: 0em;
 	text-align: left;
-
 }
 #radios
 {

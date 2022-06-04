@@ -96,41 +96,42 @@ const correct = [
 ];
 
 let interval = null;
-let oneMinute = 59;
 let scores = 0;
 let index = 0;
-let name = "";
+let name;
 let mail = "";
+const oneMinute = 59;
 
+function showMessageError(name){
+	if(name && !mail){
+		mailError.textContent = "N’oubliez pas de renseigner votre email avant de commencer le Quiz";
+		nameError.textContent = "";
+		mailError.classList.add("validate");
+		homeInputName.classList.remove("red");
+		homeInputMail.classList.add("red");
+	}else if(!name && mail){
+		nameError.textContent = "N’oubliez pas de renseigner votre nom avant de commencer le Quiz. ";
+		mailError.textContent = "";
+		nameError.classList.add("validate");
+		homeInputName.classList.add("red");
+		homeInputMail.classList.remove("red");
+	}else{
+		nameError.textContent = "N’oubliez pas de renseigner votre nom avant de commencer le Quiz. ";
+		mailError.textContent = "N’oubliez pas de renseigner votre email avant de commencer le Quiz";
+		nameError.classList.add("validate");
+		mailError.classList.add("validate");
+		homeInputName.classList.add("red");
+		homeInputMail.classList.add("red");
+	}
+}
 function ValidateEmail(name, mail){
 	if (/^[a-z0-9._-]+@[a-z0-9._-]+\.[a-z]{2,3}$/.test(mail) && name.length >= 3)
 	{
 		home.style.display = "none";
 		questionsForm.style.display = "block";
 	}else{
-		if(name && !mail){
-			mailError.textContent = "N’oubliez pas de renseigner votre email avant de commencer le Quiz";
-			nameError.textContent = "";
-			mailError.classList.add("validate");
-			homeInputName.classList.remove("red");
-			homeInputMail.classList.add("red");
-		}else if(!name && mail){
-			nameError.textContent = "N’oubliez pas de renseigner votre nom avant de commencer le Quiz. ";
-			mailError.textContent = "";
-			nameError.classList.add("validate");
-			homeInputName.classList.add("red");
-			homeInputMail.classList.remove("red");
-		}else{
-			nameError.textContent = "N’oubliez pas de renseigner votre nom avant de commencer le Quiz. ";
-			mailError.textContent = "N’oubliez pas de renseigner votre email avant de commencer le Quiz";
-			nameError.classList.add("validate");
-			mailError.classList.add("validate");
-			homeInputName.classList.add("red");
-			homeInputMail.classList.add("red");
-		}
-		
-	}	 
-	
+		showMessageError();
+	}
 }
 function startTimer(duration, display) {
 	clearInterval(interval)
@@ -197,7 +198,6 @@ function nextQuestionsContent(){
 	}
 }
 function showContent(){
-	
 	form.style.display = "none";
 	questionsForm.style.display = "block";
 	if(index < questions.length){
