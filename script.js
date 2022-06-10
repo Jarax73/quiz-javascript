@@ -98,34 +98,38 @@ const correct = [
 let interval = null;
 let scores = 0;
 let index = 0;
-let name;
+let name = "";
 let mail = "";
 const oneMinute = 59;
 
-function showMessageError(name){
-	if(name && !mail){
-		mailError.textContent = "N’oubliez pas de renseigner votre email avant de commencer le Quiz";
-		nameError.textContent = "";
-		mailError.classList.add("validate");
-		homeInputName.classList.remove("red");
-		homeInputMail.classList.add("red");
-	}else if(!name && mail){
+function nameErrorValidation(){
+	if(!name){
 		nameError.textContent = "N’oubliez pas de renseigner votre nom avant de commencer le Quiz. ";
-		mailError.textContent = "";
 		nameError.classList.add("validate");
 		homeInputName.classList.add("red");
-		homeInputMail.classList.remove("red");
 	}else{
-		nameError.textContent = "N’oubliez pas de renseigner votre nom avant de commencer le Quiz. ";
-		mailError.textContent = "N’oubliez pas de renseigner votre email avant de commencer le Quiz";
-		nameError.classList.add("validate");
-		mailError.classList.add("validate");
-		homeInputName.classList.add("red");
-		homeInputMail.classList.add("red");
+		nameError.textContent = "";
+		homeInputName.classList.remove("red");
 	}
 }
+function mailErrorValidation(){
+	if(!mail){
+		mailError.textContent = "N’oubliez pas de renseigner votre email avant de commencer le Quiz";
+		mailError.classList.add("validate");
+		homeInputMail.classList.add("red");
+	}else{
+		mailError.textContent = "";
+		homeInputMail.classList.remove("red");
+	}
+}
+function showMessageError(){
+	if(!name || !mail){
+		nameErrorValidation();
+		mailErrorValidation();
+	}	
+}
 function ValidateEmail(name, mail){
-	if (/^[a-z0-9._-]+@[a-z0-9._-]+\.[a-z]{2,3}$/.test(mail) && name.length >= 3)
+	if (/^[a-z0-9._-]+@[a-z0-9._-]+\.[a-z]{2,3}$/.test(mail) && name.length >= 2)
 	{
 		home.style.display = "none";
 		questionsForm.style.display = "block";
@@ -148,7 +152,6 @@ function startTimer(duration, display) {
 			nextButton.disabled = false;
 			nextButton.click()
 		}
-
 	}, 1000);
 }
 function questionsContent(){
@@ -191,7 +194,6 @@ function nextQuestionsContent(){
 				labelTitle[i].textContent = answers[index][i];
 				radiosInput[i].setAttribute("value", answers[index][i]);
 			}
-			questionsForm.reset();
 		})
 	}else{
 		showResult(name, mail);
@@ -212,11 +214,8 @@ function showContent(){
 }
 function inputCheckedVerification(){
 	let inputChecked = document.querySelector('input[name="answer-choice"]:checked');
-	if(inputChecked){
-		inputChecked = inputChecked.value;
-		if(inputChecked == correct[index]){
-			scores++;
-		}
+	if(inputChecked.value == correct[index]){
+		scores++;
 	}
 }
 function showResult(name, mail){
@@ -237,7 +236,7 @@ form.addEventListener("submit", function(e){
 	e.preventDefault();
 	name = document.querySelector("#nom").value;
 	mail = document.querySelector("#mail").value;
-	if(name != "" && mail != "" && name.length >= 3){
+	if(name != "" && mail != "" && name.length >= 2){
 	showContent();
 	}else{
 		ValidateEmail(name, mail);
@@ -250,7 +249,8 @@ nextButton.addEventListener("click", function(e){
 	startTimer(oneMinute, timerQuiz);
 	inputCheckedVerification();	
 	index++;
-	nextQuestionsContent();	
+	nextQuestionsContent();
+	questionsForm.reset();
 });
 quitButton.addEventListener("click", function(event){
 	event.preventDefault();
@@ -258,5 +258,5 @@ quitButton.addEventListener("click", function(event){
 });
 resultButton.addEventListener("click", function(e){
 	e.preventDefault();
-	window.location.reload();
+	window.location.href="index.html";
 });
