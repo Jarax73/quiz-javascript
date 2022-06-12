@@ -151,7 +151,7 @@ form input
 	letter-spacing: 0em;
 	text-align: left;
 }
-#progressBarContainer
+#progressbar-container
 {
 	width: 350px;
 	border: 1px solid #cecece;
@@ -162,7 +162,7 @@ form input
 	border-radius: 10px;
 	background-color: #cecece;
 }
-#progressBar
+#progressbar
 {
 	animation-duration: 60s;
 	animation-name: slidein;

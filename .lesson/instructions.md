@@ -21,3 +21,4 @@ Afin de permettre à ses apprenants développeur d'auto évalué leurs niveaux e
   
 ## Ressources 
 -  [La maquette](https://www.figma.com/file/Gv9YtBcVltAQBeGv4tn6sK/KDA-Quiz-APP?node-id=0%3A1)
+-  [ Critères d'acceptations](https://docs.google.com/document/d/1B9ng5xZafBGMWWlzn_HU8Nh2qSZjnNhEj5EBCEwoNJM)

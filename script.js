@@ -20,7 +20,7 @@ const resultMail = document.createElement("p");
 const resultImage = document.querySelector("img");
 const showScore = document.querySelector("#scores");
 const resultButton = document.querySelector("#buton");
-const homeInputName = document.querySelector("#nom");
+const homeInputName = document.querySelector("#player-name");
 const homeInputMail = document.querySelector("#mail");
 
 questionsForm.append(questionTitle);
@@ -29,8 +29,8 @@ questionCounterAndTimerContainer.setAttribute("id", "questions-number");
 timerQuiz.setAttribute("id", "time");
 questionCounterAndTimerContainer.append(timerQuiz);
 questionsForm.append(questionCounterAndTimerContainer);
-progressBarContainer.setAttribute("id", "progressBarContainer");
-progressBar.setAttribute("id", "progressBar");
+progressBarContainer.setAttribute("id", "progressbar-container");
+progressBar.setAttribute("id", "progressbar");
 progressBarContainer.appendChild(progressBar);
 questionsForm.appendChild(progressBarContainer);
 answersChoiceContainer.setAttribute("id", "radios");
@@ -94,19 +94,21 @@ const correct = [
 	"sum()", 
 	"if (a == 2)"
 ];
+const oneMinute = 59;
 
 let interval = null;
 let scores = 0;
 let index = 0;
 let name = "";
 let mail = "";
-const oneMinute = 59;
+
 
 function nameErrorValidation(){
 	if(!name){
 		nameError.textContent = "N’oubliez pas de renseigner votre nom avant de commencer le Quiz. ";
 		nameError.classList.add("validate");
 		homeInputName.classList.add("red");
+		homeInputName.select();
 	}else{
 		nameError.textContent = "";
 		homeInputName.classList.remove("red");
@@ -117,6 +119,7 @@ function mailErrorValidation(){
 		mailError.textContent = "N’oubliez pas de renseigner votre email avant de commencer le Quiz";
 		mailError.classList.add("validate");
 		homeInputMail.classList.add("red");
+		homeInputMail.select();
 	}else{
 		mailError.textContent = "";
 		homeInputMail.classList.remove("red");
@@ -128,7 +131,7 @@ function showMessageError(){
 		mailErrorValidation();
 	}	
 }
-function ValidateEmail(name, mail){
+function homeFormValidation(name, mail){
 	if (/^[a-z0-9._-]+@[a-z0-9._-]+\.[a-z]{2,3}$/.test(mail) && name.length >= 2)
 	{
 		home.style.display = "none";
@@ -150,7 +153,7 @@ function startTimer(duration, display) {
 			timer = duration;
 			clearInterval(interval)
 			nextButton.disabled = false;
-			nextButton.click()
+			nextButton.click();
 		}
 	}, 1000);
 }
@@ -161,16 +164,16 @@ function questionsContent(){
 }
 function answersContent(){
 	answers[index].forEach(function(answer){	
-		let radiosInput = document.createElement("input");
+		const radiosInput = document.createElement("input");
 		radiosInput.setAttribute("type", "radio");
 		radiosInput.setAttribute("name", "answer-choice");
-		let radioStyle = document.createElement("div");
+		const radioStyle = document.createElement("div");
 		radioStyle.addEventListener("click", function(){ 	
 			radiosInput.click();
 			nextButton.disabled = false;
 		});
 		radioStyle.setAttribute("class", "radio-style");
-		let labelTitle = document.createElement("label");
+		const labelTitle = document.createElement("label");
 		labelTitle.classList.add("answer-choice");
 		radiosInput.setAttribute("value", answer);
 		labelTitle.textContent = answer;
@@ -181,10 +184,8 @@ function answersContent(){
 	})
 }
 function nextQuestionsContent(){
+	index++;
 	if(index < answers.length ){
-		if(index == answers.length - 1){
-			nextButton.textContent = "Terminer";
-		}
 		nextButton.disabled = true;
 		questionsContent();
 		answers[index].forEach(function(){
@@ -195,6 +196,9 @@ function nextQuestionsContent(){
 				radiosInput[i].setAttribute("value", answers[index][i]);
 			}
 		})
+		if(index == answers.length - 1){
+			nextButton.textContent = "Terminer";
+		}
 	}else{
 		showResult(name, mail);
 	}
@@ -234,12 +238,12 @@ function showResult(name, mail){
 }
 form.addEventListener("submit", function(e){
 	e.preventDefault();
-	name = document.querySelector("#nom").value;
+	name = document.querySelector("#player-name").value;
 	mail = document.querySelector("#mail").value;
 	if(name != "" && mail != "" && name.length >= 2){
 	showContent();
 	}else{
-		ValidateEmail(name, mail);
+		homeFormValidation(name, mail);
 	}
 });
 nextButton.addEventListener("click", function(e){
@@ -248,7 +252,6 @@ nextButton.addEventListener("click", function(e){
 	progressBarContainer.appendChild(progressBar)
 	startTimer(oneMinute, timerQuiz);
 	inputCheckedVerification();	
-	index++;
 	nextQuestionsContent();
 	questionsForm.reset();
 });
