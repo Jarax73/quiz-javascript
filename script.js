@@ -5,8 +5,10 @@ const questionsForm = document.querySelector("#form-questions");
 const formInput = document.querySelectorAll("#accueil input");
 const resultScreen = document.querySelector("#result");
 const showScore = document.querySelector("#points");
+const head= document.createElement("div");
+head.setAttribute("id", "head-questions");
 const questionTitle = document.createElement("h1");
-questionsForm.append(questionTitle);
+// questionsForm.append(questionTitle);
 const questionCounter = document.createElement("p");
 const questionsNumber = document.createElement("div");
 questionsNumber.append(questionCounter);
@@ -14,13 +16,17 @@ questionsNumber.setAttribute("id", "questions-number");
 const timerQuiz = document.createElement("p");
 timerQuiz.setAttribute("id", "time");
 questionsNumber.append(timerQuiz);
-questionsForm.append(questionsNumber);
 const crossdiv = document.createElement('div');
 crossdiv.setAttribute("id", "crossdiv");
 const crossbar = document.createElement('p');
 crossbar.setAttribute("id", "crossbar");
 crossdiv.appendChild(crossbar);
-questionsForm.appendChild(crossdiv);
+const headDiv = document.createElement("div");
+head.append(questionTitle);
+headDiv.append(questionsNumber);
+headDiv.appendChild(crossdiv);
+head.append(headDiv)
+questionsForm.append(head);
 const radioIn = document.createElement('div');
 const questionAnswers = document.createElement("div");
 questionAnswers.setAttribute("id", "radios");
@@ -66,7 +72,7 @@ let answers = [
 	["sum()", "call function sum()", "call sum()", "aucune bonne reponse"], 
 	["if a = 2 then", "if a = 2", "if a = 2 else", "if (a == 2)"]
 ];
-let correct = ["14",".js", "dans un fichier externe", "ne pas repéter le même code plusieurs fois", "alert('Hello World');", "arrayList.length=0", "unshift,push", "undefined", "string", "Netscape", "arr[arr.length]=value;", "32", "<script></script>", "sum()", "if (a == 2)"];
+let correct = ["12",".js", "dans un fichier externe", "ne pas repéter le même code plusieurs fois", "alert('Hello World');", "arrayList.length=0", "unshift,push", "undefined", "string", "Netscape", "arr[arr.length]=value;", "32", "<script></script>", "sum()", "if (a == 2)"];
 
 let points = 0;
 let index = 0;
@@ -107,7 +113,7 @@ function showResult(name, mail){
 	resultName.textContent = name;
 	resultMail.textContent = mail;
 	questionsForm.style.display = "none";
-	resultScreen.style.display = "block";
+	resultScreen.style.display = "flex";
 	if(points >= answers.length / 2){
 		success.style.display = "block";
 		wrong.style.display = "none";
@@ -150,11 +156,12 @@ form.addEventListener("submit", function(e){
 //action à mener si le nom et le mail sont non-vide et la longueur du nom est >= 3 
 		
 		form.style.display = "none";
-		questionsForm.style.display = "block";
+		questionsForm.style.display = "flex";
 		if(index < questions.length){
 			questionTitle.textContent = questions[index];
 			questionCounter.textContent = `Question ${index + 1}/${questions.length}`;
 			startTimer(oneMinute, timerQuiz);
+			headDiv.style.height="50px";
 			
 			answers[index].forEach(function(answer){
 				let radioStyle = document.createElement("div");
@@ -164,11 +171,14 @@ form.addEventListener("submit", function(e){
 				radiosInput.setAttribute("type", "radio");
 				radiosInput.setAttribute("name", "answer-choice");
 				let labelTitle = document.createElement("label");
+				let radioAnswer = document.createElement("div");
+				radioAnswer.setAttribute("id", "answer-container");
+				radioAnswer.append(radiosInput);
+				radioAnswer.append(labelTitle);
 				labelTitle.classList.add("answer-choice");
 				radiosInput.setAttribute("value", answer);
 				labelTitle.textContent = answer;
-				radioStyle.appendChild(radiosInput);
-				radioStyle.appendChild(labelTitle);
+				radioStyle.appendChild(radioAnswer);
 				radioIn.append(radioStyle);
 				questionAnswers.append(radioIn);
 			})
