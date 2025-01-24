@@ -15,8 +15,6 @@ section
 {
 	display: flex;
 	flex-direction: column;
-	/* justify-content: center;
-	align-items: center; */
 	height: 80vh;
 	width: 20%;
 	background: #FFFFFF;
@@ -299,12 +297,8 @@ button
 }
 
 @media screen and (min-width: 1024px) and (max-width: 1280px){
-	main{
-		/* height: 90vh; */
-	}
 	section{
 		width: 30%;
-		padding-top: 0;
 		padding-left: 2%;
 		padding-right: 2%;
 		display: flex;

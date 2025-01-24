@@ -8,7 +8,6 @@ const showScore = document.querySelector("#points");
 const head= document.createElement("div");
 head.setAttribute("id", "head-questions");
 const questionTitle = document.createElement("h1");
-// questionsForm.append(questionTitle);
 const questionCounter = document.createElement("p");
 const questionsNumber = document.createElement("div");
 questionsNumber.append(questionCounter);
