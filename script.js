@@ -28,6 +28,7 @@ headDiv.appendChild(crossdiv);
 head.append(headDiv)
 questionsForm.append(head);
 const radioIn = document.createElement('div');
+radioIn.setAttribute("id", "answer-section");
 const questionAnswers = document.createElement("div");
 questionAnswers.setAttribute("id", "radios");
 const quitbtn = document.createElement("button");
@@ -88,16 +89,16 @@ function ValidateEmail(name, mail){
  if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail) && name.length >= 3)
   {
 		accueil.style.display = "none";
-		questionsForm.style.display = "block";
+		questionsForm.style.display = "flex";
     return (true)
   }
 	nameError.textContent = "N’oubliez pas de renseigner votre nom avant de commencer le Quiz. ";
 	mailError.textContent = "N’oubliez pas de renseigner votre email avant de commencer le Quiz";
 	nameError.classList.add("validate");
 	mailError.classList.add("validate"); 
-	for (let i = 0; i < formInput.length; i++){
-		formInput[i].classList.add("red");
-	}
+	// for (let i = 0; i < formInput.length; i++){
+	// 	formInput[i].classList.add("red");
+	// }
 	return (false)
 }
 

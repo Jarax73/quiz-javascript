@@ -1,6 +1,4 @@
 html, body {
-  height: 100%;
-  width: 100%;
   margin: 0;
   padding: 0;
   background-image: linear-gradient(to right, #a4e5a4, skyblue);
@@ -17,42 +15,49 @@ section
 {
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+	/* justify-content: center;
+	align-items: center; */
 	height: 80vh;
 	width: 20%;
-	border-radius: 0px;
 	background: #FFFFFF;
-	padding-top: 2%;
 	padding-left: 5%;
 	padding-right: 5%;
 }
 section h1
 {
-	height: 39px;
-	border-radius: nullpx;
 	font-family: Inter;
 	font-size: 32px;
 	font-weight: 500;
-	line-height: 39px;
-	letter-spacing: 0em;
 	text-align: center;
 	color: #555555;
 	
 }
+#accueil{
+	display: flex;
+	height: 100%;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+#accueil div{
+	display: flex;
+	flex-direction: column;
+}
 #description
 {
-	align-self: center;
-	height: 126px;
-	/* width: 80%; */
 	font-family: Inter;
-	font-size: 20px;
-	font-weight: 400;
-	line-height: 32px;
-	letter-spacing: 0em;
+	font-size: 16px;
 	text-align: center;
 	color: #555555;
-	margin-bottom: 65px;
+}
+#input-section{
+	width: 100%;
+}
+.input-container{
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	height: 130px;
 }
 form
 {
@@ -62,13 +67,9 @@ form
 }
 form label
 {
-	align-self: flex-start;
-	margin-left: 35px;
 	font-family: Inter;
 	font-size: 16px;
 	font-weight: 400;
-	line-height: 19px;
-	letter-spacing: 0em;
 	text-align: left;
 	color: #555555;
 }
@@ -77,11 +78,6 @@ form input
 	height: 59px;
 	width: 100%;
 	padding: 21px;
-	margin-top: 15px;
-	margin-bottom: 45px;
-	left: 0px;
-	top: 32px;
-	border-radius: 0px;
 	background: #FFFFFF;
 	border: 1px solid #DDDDDD;
 	box-sizing: border-box;
@@ -91,29 +87,25 @@ form input
 {
 	height: 59px;
 	width: 226px;
-	padding: 0;
-	left: 0px;
-	top: 0px;
-	border-radius: 0px;
 	background: #028A3D;
 	color: #fff;
 	font-family: Inter;
 	font-size: 20px;
 	font-weight: 500;
-	line-height: 24px;
-	letter-spacing: 0em;
 	text-align: center;
-	box-shadow: 1px 10px 6px -4px #e5e5e5;
 	cursor: pointer;
-	
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 #form-questions
 {
 	display: none;
+	height: 100%;
 	flex-direction: column;
-	justify-content: space-around;
+	justify-content: center;
+	align-items: center;
 	gap: 10px;
-	width: 400px;
 }
 #form-questions h1
 {
@@ -121,8 +113,6 @@ form input
 	font-family: Inter;
 	font-size: 20px;
 	font-weight: 400;
-	line-height: 32px;
-	letter-spacing: 0em;
 	text-align: center;
 	color: #555555;
 
@@ -142,13 +132,12 @@ form input
 	flex-direction: column;
 	justify-content: space-between;
 	width: 100%;
-	height: 200px;
+	height: 150px;
 }
 .radio-style
 {
 	display: flex;
 	align-items: center;
-	margin-bottom: 20px;
 	width: 100%;
 }
 .radio-style label{
@@ -158,17 +147,21 @@ input[type="radio"]
 {
 	appearance: none;
 	width: 2px;
-    height: 2px;
-	border: 1px dotted #028A3D;
+	height: 2px;
+	transform: scale(0.7);
+	border: 1px solid #028A3D;
     border-radius: 50%;
     outline: none;
     cursor: pointer;
-	margin-top: auto;
-	margin-bottom: auto;
 }
 input[type="radio"]:checked {
     background-color: #028A3D; 
     border-color: #028A3D;
+}
+#answer-section{
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
 }
 #answer-container{
 	width: 100%;
@@ -177,7 +170,6 @@ input[type="radio"]:checked {
 	align-items: center;
 	border: 1px solid #028A3D;
 }
-
 #radios
 {
 	display: flex;
@@ -185,10 +177,6 @@ input[type="radio"]:checked {
 	justify-content: space-around;
 	height: 450px;
 	width: 100%;
-}
-button
-{
-	margin-top: 50px;
 }
 #submit-style
 {
@@ -216,6 +204,7 @@ button
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	height: 100%;
 }
 
 #result h1
@@ -256,14 +245,11 @@ button
 {
 	height: 59px;
 	width: 226px;
-	border-radius: 0px;
 	border: none;
 	color: #fff;
 	font-family: Inter;
 	font-size: 20px;
 	font-weight: 500;
-	line-height: 24px;
-	letter-spacing: 0em;
 	text-align: center;
 
 }
@@ -291,8 +277,7 @@ button
 .validate
 {
 	color: red;
-	width: 80%;
-	margin: -30px 0 10% 0;
+	font-size: 11px;
 }
 @keyframes slidein {
   from {
@@ -311,4 +296,50 @@ button
     width: 0%;
 		background-color: red;
   }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1280px){
+	main{
+		/* height: 90vh; */
+	}
+	section{
+		width: 30%;
+		padding-top: 0;
+		padding-left: 2%;
+		padding-right: 2%;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+	}
+	section h1{
+		font-size: 26px;
+	}
+	#accueil{
+		gap: 20px;
+	}
+	#description{
+		font-size: 14px;
+	}
+	.validate{
+		font-size: 10px;
+	}
+	form label{
+		font-size: 14px;
+	}
+	form input{
+		height: 30px;
+	}
+	#head-questions{
+		height: 100px;
+	}
+	#head-questions h1{
+		font-size: 14px;
+	}
+	#answer-container{
+		height: 40px;
+	}
+	input[type="radio"]{
+		transform: scale(0.5);
+		border-radius: 100%;
+	}
 }

@@ -13,16 +13,24 @@
 		<section>
 			<!--formulaire d'accueil-->
 			<form id="accueil">
-			<h1>Javascript Quiz</h1>
-			<p id="description">Évaluez vos connaissances en JavaScript en répondant aux questions que nous avons spécialement sélectionnées pour vous. C'est fun et c'est gratuit. </p>
-			
-				<label for="nom">Nom</label>
-				<input type="text" placeholder="Jared Kapila" id="nom" name="nom" class="description"/>
-				<p id="name"></p>
-				<label for="mail">Email</label>
-				<input type="email" placeholder="jaraxkapila73@gmail.com" id="mail" name="mail" class="description" />
-				<p id="email"></p>
-				<input type="submit" value="Commencer"/>
+				<h1>Javascript Quiz</h1>
+				<p id="description">Évaluez vos connaissances en JavaScript en 
+					répondant aux questions que nous avons spécialement sélectionnées 
+					pour vous. C'est fun et c'est gratuit. 
+				</p>
+				<div id="input-section">
+					<div class="input-container">		
+						<label for="nom">Nom</label>
+						<input type="text" placeholder="Jared Kapila" id="nom" name="nom"/>
+						<p id="name"></p>
+					</div>
+					<div class="input-container">
+						<label for="mail">Email</label>
+						<input type="email" placeholder="jaraxkapila73@gmail.com" id="mail" name="mail"  />
+						<p id="email"></p>
+					</div>
+				</div>
+				<button type="submit">Commencer</button>
 
 			</form>
 			<!-- Formulaire pour les questions -->
@@ -31,8 +39,6 @@
 			</form>
 			<!--Formulaire de résultat-->
 			<form id="result">
-<!-- 				<h1>X</h1>
-				<p>X</p> -->
 				<p class="success-wrong success"><img src="ant-design_check-circle-outlined.png" alt="" /></p>
 				<p class="success-wrong wrong"><img src="ant-design_close-circle-outlined.png" alt="" /></p>
 				<p id="points">X</p>
